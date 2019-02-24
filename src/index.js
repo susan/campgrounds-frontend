@@ -1,13 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter } from "react-router-dom"
 import './index.css';
 import App from './App';
+
 
 import { createStore} from "redux"
 import reducer from './redux/reducer.js'
 
 import { Provider } from 'react-redux'
+
+import 'semantic-ui-css/semantic.min.css';
 import * as serviceWorker from './serviceWorker';
+
+
 
 const store = createStore(reducer,
 	window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
