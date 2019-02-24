@@ -24,15 +24,17 @@ handleSubmit = event => {
 console.log(event)
 }
 
+//* get rid of submitHandler anonymous function, we are doing handleSubmit
+//right here to get final user object and change state
+//<form onSubmit={event => this.props.submitHandler(event, this.state)}>
+
+
   render() {
     console.log(this.props);
     return (
       <div>
         <h2>Register</h2>
-      {/* get rid of submitHandler anonymous function, we are doing handleSubmit
-      right here to get final user object and change state
-        <form onSubmit={event => this.props.submitHandler(event, this.state)}>
-      */}
+
          <form onSubmit={this.handleSubmit}>
           <input
             type="text"

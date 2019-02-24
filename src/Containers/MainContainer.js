@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 //import { Route, Switch } from "react-router-dom"
+//import NavBar from "./Components/NavBar"
 import Home from "../Components/Home"
-import ParkContainer from "./ParkContainer.js"
-import CampgroundContainer from "./CampgroundContainer.js"
+import ParkContainer from "./ParkContainer"
+import CampgroundContainer from "./CampgroundContainer"
 
 
 class MainContainer extends Component {
@@ -12,6 +13,9 @@ class MainContainer extends Component {
     return (
        <div>
        <h2> MainC: choices are home, ParkC, or CampgroundC    </h2>
+       <Home />
+       <ParkContainer />
+       <CampgroundContainer />
       </div>
     );
   }

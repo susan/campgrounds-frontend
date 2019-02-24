@@ -4,8 +4,6 @@ import { Link } from "react-router-dom"
 
 class ParkCard extends Component {
 
-
-
   render() {
   	//console.log("pcard props are", this.props)
   	//const {img1_url, full_name} = this.props.park

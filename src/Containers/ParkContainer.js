@@ -9,10 +9,12 @@ class ParkContainer extends Component {
   render() {
     return (
     	<div>
-    	<h2> National Parks Home Page   </h2>
+    	<h2>  National Parks Home Page </h2>
       <ul>
           {"All the Parks will get rendered here!"}
       </ul>
+      <ParkCard />
+      <CampgroundParkList />
     	</div>
     )
   }
