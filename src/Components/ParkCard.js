@@ -4,6 +4,11 @@ import { Link } from "react-router-dom"
 
 class ParkCard extends Component {
 
+   campgroundHandler = () =>{
+    return this.props.createCampgrounds(this.props.park)
+  }
+
+
   render() {
   	console.log("pcard props are", this.props)
   	const {img1_url, full_name} = this.props.park
@@ -15,6 +20,7 @@ class ParkCard extends Component {
       <br/>{/*puts a larger space between the rows*/}
        <img className = "park-img" alt="" src={img1_url} />
        <p> {full_name} </p>
+       <Button onClick={this.campgroundHandler}>  Show Campgrounds </Button>
      </Card.Header >
       </div>
 

@@ -7,14 +7,16 @@ class CampgroundParkList extends Component {
   render() {
   	console.log("groundprops are", this.props)
   	console.log("---")
-
-    return (
-
-      <div>
-      <p> sibling of ParkCard, i could be shown side by side with parkC on a differnt part of page
-       but makes better sense to eventually only get shown if ParkCard is not shown  </p>
-      <ul> {"campgroundlist for a specific park gets rendered here"}</ul>
-      <CampgroundCard />
+      return (
+      	<div>
+      	{this.props.park.campgrounds
+      		&&
+        this.props.park.campgrounds.map((campground,i) => {
+            return (
+                <li key={i}>{campground.name}</li>
+            );
+          })
+         }
       </div>
     );
   }
