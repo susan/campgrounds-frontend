@@ -4,12 +4,18 @@ import React, { Component } from 'react';
 import Home from "../Components/Home"
 import ParkContainer from "./ParkContainer"
 import CampgroundContainer from "./CampgroundContainer"
-
+import { getParks } from "../redux/campgroundThunks"
+import { connect } from 'react-redux'
 
 class MainContainer extends Component {
 
 
+  componentDidMount(){
+    this.props.getParks()
+  }
+
   render() {
+  	console.log("mainC props are", this.props)
     return (
        <div>
        <h2> MainC: choices are home, ParkC, or CampgroundC    </h2>
@@ -20,5 +26,18 @@ class MainContainer extends Component {
     );
   }
 }
+  //these are all outside the component class
+  const mapStateToProps = (state) => {
+    console.log("NEW STATE:", state)
+    return {
+    	parks: state.parks
+    }
 
-export default MainContainer;
+  }
+
+  const mapDispatchToProps = dispatch => ({
+  	getParks: () => dispatch(getParks())
+  })
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(MainContainer);
