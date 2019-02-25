@@ -11,9 +11,9 @@ class CampgroundParkList extends Component {
       	<div>
       	{this.props.park.campgrounds
       		&&
-        this.props.park.campgrounds.map((campground,i) => {
+        this.props.park.campgrounds.map(campground => {
             return (
-                <li key={i}>{campground.name}</li>
+                <li key={campground.id}>{campground.name}</li>
             );
           })
          }
