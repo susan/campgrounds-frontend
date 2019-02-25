@@ -7,13 +7,17 @@ import CampgroundParkList from "./CampgroundParkList.js"
 class ParkContainer extends Component {
 
   render() {
+    console.log("Parkc props are", this.props)
+
+    const parkList = this.props.parks.map(park => {
+      return <ParkCard key={park.id} park = {park} />
+    })
     return (
-    	<div>
+    	<div className = "parksList">
     	<h2>  National Parks Home Page </h2>
-      <ul>
-          {"All the Parks will get rendered here!"}
-      </ul>
-      <ParkCard />
+      <Grid className="categories-wrapper" celled='internally' container stackable centered columns='equal'>
+      {parkList}
+      </Grid>
       <CampgroundParkList />
     	</div>
     )

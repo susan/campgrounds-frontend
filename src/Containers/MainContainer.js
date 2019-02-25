@@ -6,6 +6,7 @@ import ParkContainer from "./ParkContainer"
 import CampgroundContainer from "./CampgroundContainer"
 import { getParks } from "../redux/campgroundThunks"
 import { connect } from 'react-redux'
+import { Grid} from 'semantic-ui-react';
 
 class MainContainer extends Component {
 
@@ -15,13 +16,18 @@ class MainContainer extends Component {
   }
 
   render() {
-  	console.log("mainC props are", this.props)
+  	//console.log("mainC props are", this.props)
     return (
        <div>
        <h2> MainC: choices are home, ParkC, or CampgroundC    </h2>
        <Home />
-       <ParkContainer />
-       <CampgroundContainer />
+       <Grid celled>
+       <Grid.Column width={8} >
+       <ParkContainer parks={this.props.parks}/>
+       </Grid.Column>
+       </Grid>
+       <CampgroundContainer/>
+
       </div>
     );
   }
