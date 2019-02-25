@@ -1,16 +1,22 @@
-import { ADD_USER, ADD_REVIEW, DELETE_REVIEW, LOAD_PARKS} from './types'
+import { ADD_USER, ADD_REVIEW, DELETE_REVIEW, LOAD_PARKS, SELECT_PARK} from './types'
 
 
 const initialState =  {
   users: [],
   parks: [],
+  selectedPark: {},
 };
 
 //using the word function below instead of arrow
 export default function reducer(state = initialState, action){
+  console.log("initialstate is", state, "Action", action)
   switch(action.type) {
     case LOAD_PARKS: {
      return { ...state, parks: action.payload}
+    }
+
+    case SELECT_PARK: {
+     return { ...state, selectedPark: action.payload}
     }
 
     case ADD_USER: {

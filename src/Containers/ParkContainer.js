@@ -6,24 +6,24 @@ import CampgroundParkList from "./CampgroundParkList.js"
 
 class ParkContainer extends Component {
 
-  state= {
-    selectedPark: {},
+  // state= {
+  //   selectedPark: {},
 
-  }
+  // }
 
-  createCampgrounds = (selectedPark) => {
-      //console.log("does this work")
-      return this.setState({
-        selectedPark: selectedPark
-      })
-     }
+  // createCampgrounds = (selectedPark) => {
+  //     //console.log("does this work")
+  //     return this.setState({
+  //       selectedPark: selectedPark
+  //     })
+  //    }
 
 
   render() {
     console.log("Parkc props are", this.props)
 
     const parkList = this.props.parks.map(park => {
-      return <ParkCard key={park.id} park = {park} createCampgrounds={this.createCampgrounds} />
+      return <ParkCard key={park.id} park = {park} />
     })
     return (
       <div>
@@ -34,11 +34,12 @@ class ParkContainer extends Component {
       {parkList}
       </Grid>
 
-
-       <CampgroundParkList park={this.state.selectedPark} />
+       <CampgroundParkList  />
      </div>
     )
   }
 }
 
 export default ParkContainer
+//{/*createCampgrounds={this.createCampgrounds} */}
+//park={this.state.selectedPark}

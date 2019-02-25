@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import CampgroundCard from "../Components/CampgroundCard"
+import { connect } from "react-redux"
 
 class CampgroundParkList extends Component {
 
@@ -9,11 +10,11 @@ class CampgroundParkList extends Component {
   	console.log("---")
       return (
       	<div>
-      	{this.props.park.campgrounds
-      		&&
-        this.props.park.campgrounds.map(campground => {
-            return (
-                <li key={campground.id}>{campground.name}</li>
+         {this.props.selectedPark.campgrounds
+           &&
+         this.props.selectedPark.campgrounds.map(campground => {
+          return (
+                 <li key={campground.id}>{campground.name}</li>
             );
           })
          }
@@ -22,4 +23,10 @@ class CampgroundParkList extends Component {
   }
 }
 
-export default CampgroundParkList
+const mapStateToProps = (state) => ({
+  selectedPark: state.selectedPark
+})
+
+export default connect(mapStateToProps)(CampgroundParkList);
+
+
