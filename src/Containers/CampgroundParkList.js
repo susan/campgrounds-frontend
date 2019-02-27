@@ -14,7 +14,9 @@ class CampgroundParkList extends Component {
            &&
          this.props.selectedPark.campgrounds.map(campground => {
           return (
-                 <li key={campground.id}>{campground.name}</li>
+                 <Link to={`/campgroundPark/${campground.name}`} >
+                 <li> {campground.name} </li>
+                 </Link>
             );
           })
          }
