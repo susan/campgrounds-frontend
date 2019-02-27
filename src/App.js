@@ -19,6 +19,7 @@ class App extends Component {
        <Route path= "/main" component={MainContainer} />
        </React.Fragment>
        </Switch>
+       <Route path= "/" component={MainContainer} />
       </div>
     );
   }
