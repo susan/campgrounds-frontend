@@ -8,9 +8,9 @@ const NavBar = (props) => {
       <Menu attached='top' color='green' inverted>
         <Menu.Item as={ NavLink } name="Home" to="/">
         </Menu.Item>
-        <Menu.Item as={ NavLink } name="Parks" to="/parks">
+        <Menu.Item as={ NavLink } name="Parks" to="/main/parks">
         </Menu.Item>
-        <Menu.Item as={ NavLink } name="Campgrounds" to="/campgrounds" >
+        <Menu.Item as={ NavLink } name="Campgrounds" to="/main/campgrounds" >
         </Menu.Item>
         <Menu.Item position="right"as={ NavLink } name="Login" to="/login">
         </Menu.Item>

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-//import { Route, Switch } from "react-router-dom"
-//import NavBar from "./Components/NavBar"
+import NavBar from "../Components/NavBar"
 import Home from "../Components/Home"
 import ParkContainer from "./ParkContainer"
 import CampgroundContainer from "./CampgroundContainer"
@@ -33,6 +32,7 @@ class MainContainer extends Component {
     return (
        <div>
        <h2> MainC: choices are home, ParkC, or CampgroundC    </h2>
+       <Route component={NavBar} />
        <Switch>
        <Route exact path="/main/:name"
        render={routerProps =>
@@ -47,7 +47,6 @@ class MainContainer extends Component {
        <Route exact path="/main" render={Home} />
 
        </Switch>
-
       </div>
     );
   }
