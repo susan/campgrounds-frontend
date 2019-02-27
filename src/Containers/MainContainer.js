@@ -16,7 +16,7 @@ class MainContainer extends Component {
     this.props.getParks()
   }
 
-   doThisStuff = (routerProps) => {
+   nestedParks = (routerProps) => {
       let parks=routerProps.match.params.parks;
       let parkList= this.props.parks
       return <ParkContainer parks={parkList} />
@@ -32,7 +32,7 @@ class MainContainer extends Component {
        <Switch>
        <Route path="/main/:parks"
        render={routerProps =>
-        <div>{this.doThisStuff(routerProps)}</div>
+        <div>{this.nestedParks(routerProps)}</div>
 
        }
         />
