@@ -16,10 +16,15 @@ class MainContainer extends Component {
     this.props.getParks()
   }
 
-   nestedParks = (routerProps) => {
-      let parks=routerProps.match.params.parks;
+   nestedRoute = (routerProps) => {
       let parkList= this.props.parks
-      return <ParkContainer parks={parkList} />
+      if (routerProps.match.params.name === "parks") {
+        return <ParkContainer parks={parkList} />
+      }
+       else if (routerProps.match.params.name === "campgrounds"){
+        return <CampgroundContainer  />
+      }
+      else return <Home />
     }
 
   render() {
@@ -28,15 +33,19 @@ class MainContainer extends Component {
     return (
        <div>
        <h2> MainC: choices are home, ParkC, or CampgroundC    </h2>
-       <Home />
        <Switch>
-       <Route path="/main/:parks"
+       <Route exact path="/main/:name"
        render={routerProps =>
-        <div>{this.nestedParks(routerProps)}</div>
-
+        <div>{this.nestedRoute(routerProps)}</div>
        }
         />
-       <CampgroundContainer/>
+       <Route exact path="/main/:name"
+       render={routerProps =>
+        <div>{this.nestedRoute(routerProps)}</div>
+       }
+        />
+       <Route exact path="/main" render={Home} />
+
        </Switch>
 
       </div>
@@ -58,3 +67,8 @@ class MainContainer extends Component {
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(MainContainer);
+
+
+  //{/*<div>{this.nestedParks(routerProps)}</div> */}
+
+
