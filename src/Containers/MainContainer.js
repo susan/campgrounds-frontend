@@ -7,6 +7,7 @@ import CampgroundContainer from "./CampgroundContainer"
 import { getParks } from "../redux/campgroundThunks"
 import { connect } from 'react-redux'
 import { Grid} from 'semantic-ui-react';
+import { Route, Switch, withRouter} from "react-router-dom"
 
 class MainContainer extends Component {
 
@@ -15,18 +16,28 @@ class MainContainer extends Component {
     this.props.getParks()
   }
 
+   doThisStuff = (routerProps) => {
+      let parks=routerProps.match.params.parks;
+      let parkList= this.props.parks
+      return <ParkContainer parks={parkList} />
+    }
+
   render() {
   	//console.log("mainC props are", this.props)
+
     return (
        <div>
        <h2> MainC: choices are home, ParkC, or CampgroundC    </h2>
        <Home />
-       <Grid celled>
-       <Grid.Column width={8} >
-       <ParkContainer parks={this.props.parks}/>
-       </Grid.Column>
-       </Grid>
+       <Switch>
+       <Route path="/main/:parks"
+       render={routerProps =>
+        <div>{this.doThisStuff(routerProps)}</div>
+
+       }
+        />
        <CampgroundContainer/>
+       </Switch>
 
       </div>
     );
