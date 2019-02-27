@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import Home from "../Components/Home"
 import ParkContainer from "./ParkContainer"
 import CampgroundContainer from "./CampgroundContainer"
+import NavBar from "../Components/NavBar"
 import { getParks } from "../redux/campgroundThunks"
 import { connect } from 'react-redux'
 import { Grid} from 'semantic-ui-react';
@@ -21,7 +22,7 @@ class MainContainer extends Component {
       if (routerProps.match.params.name === "parks") {
         return <ParkContainer parks={parkList} />
       }
-       else if (routerProps.match.params.name === "campgrounds"){
+       else if (routerProps.match.name === "campgrounds"){
         return <CampgroundContainer  />
       }
       else return <Home />
@@ -33,6 +34,7 @@ class MainContainer extends Component {
     return (
        <div>
        <h2> MainC: choices are home, ParkC, or CampgroundC    </h2>
+       <NavBar />
        <Switch>
        <Route exact path="/main/:name"
        render={routerProps =>

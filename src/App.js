@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-//import NavBar from "./Components/NavBar"
+import AppNavBar from "./Components/AppNavBar"
 import MainContainer from "./Containers/MainContainer";
 import LoginForm from "./Components/LoginForm"
 import SignupForm from "./Components/SignupForm"
@@ -12,9 +12,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-       <SignupForm />
-       <LoginForm />
-       <MainContainer />
+      <AppNavBar/>
+      <Switch>
+      <Route exact path="/register" component={SignupForm} />
+       <Route exact path="/login" component={LoginForm} />
+       </Switch>
+       <Route exact path="/main" component={MainContainer} />
       </div>
     );
   }
