@@ -1,9 +1,11 @@
 
 import React, { Component} from 'react'
+import { connect } from "react-redux"
+import { logoutUser} from "../redux/action"
 
-class Logout extends Component {
+class LogoutUser extends Component {
 
-	function logout() {
+	logout = () => {
     // remove user from local storage to log user out
     localStorage.removeItem("token");
     this.props.logoutUser(this.props.user)
@@ -13,17 +15,22 @@ class Logout extends Component {
   render() {
     return (
       <button onClick={() => this.logout()} className="btn btn-primary">
-        Logout
+        LogMeOut
       </button>
     )
   }
 
 }
 
+ const mapStateToProps = (state) => ({
+  user: state.user
+})
+
+
 const mapDispatchToProps = (dispatch) => {
   return {
-  	logoutUser: () => dispatch(logoutUser())
+  	logoutUser: (user) => dispatch(logoutUser(user))
   }
 
 }
-export default connect(null, {mapDispatchToProps})(Logout);
+export default connect(mapStateToProps, mapDispatchToProps)(LogoutUser);
