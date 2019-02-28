@@ -21,15 +21,15 @@ export default function reducer(state = initialState, action){
     }
 
     case ADD_USER: {
-      return {...state, users: [...state.users, action.payload] }
+      return {...state, user: action.payload }
     }
 
     case LOGIN_USER: {
-      return {...state, users: [...state.users, action.payload] }
+      return {...state, user: action.payload }
     }
 
     case LOGOUT_USER: {
-      return { ...state, users: [], user: {} }
+      return { ...state, user: {} }
     }
 
 

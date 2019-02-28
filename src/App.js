@@ -13,11 +13,11 @@ class App extends Component {
     return (
       <div className="App">
       <Switch>
-      <React.Fragment>
+
       <Route exact path="/register" component={SignupForm}/>
        <Route exact path="/login" component={LoginForm}/>
        <Route path= "/main" component={MainContainer} />
-       </React.Fragment>
+
        </Switch>
        <Route path= "/" component={MainContainer} />
       </div>
