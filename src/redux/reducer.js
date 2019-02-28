@@ -1,7 +1,8 @@
-import { ADD_USER, LOGIN_USER, ADD_REVIEW, DELETE_REVIEW, LOAD_PARKS, SELECT_PARK} from './types'
+import { ADD_USER, LOGIN_USER, LOGOUT_USER, ADD_REVIEW, DELETE_REVIEW, LOAD_PARKS, SELECT_PARK} from './types'
 
 
 const initialState =  {
+  user: {},
   users: [],
   parks: [],
   selectedPark: {},
@@ -26,6 +27,11 @@ export default function reducer(state = initialState, action){
     case LOGIN_USER: {
       return {...state, users: [...state.users, action.payload] }
     }
+
+    case LOGOUT_USER: {
+      return { ...state, users: [], user: {} }
+    }
+
 
     case ADD_REVIEW: {
       return {...state, reviews: [...state.reviews, action.payload] }

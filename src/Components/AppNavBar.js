@@ -12,6 +12,9 @@ const AppNavBar = (props) => {
         </Menu.Item>
         <Menu.Item position="right"as={ NavLink } name="Login" to="/login">
         </Menu.Item>
+        <Menu.Item position="right"as={ NavLink } name="Logout" to="/logout">
+        </Menu.Item>
+
         <Menu.Item position="right"as={ NavLink } name="Register" to="/register">
         </Menu.Item>
       </Menu>
