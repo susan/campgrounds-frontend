@@ -1,17 +1,19 @@
 import React, { Component } from "react";
+import { createUser } from "../redux/campgroundThunks.js"
+import { connect } from "react-redux"
 
 class SignupForm extends Component {
   //keep this as we will capture input stuff here in local state,
   //then send off final to redux in handleSubmit
   state = {
-    signupUsername: "",
+    signupUserName: "",
     signupUserEmail: "",
-    signupPassword: "",
+    signupUserPassword: "",
   };
 
   handleChange = event => {
     //keep this as we capture input stuff here
-    console.log(event)
+    //console.log(event.target)
     this.setState({
       [event.target.name]: event.target.value
     });
@@ -21,7 +23,9 @@ class SignupForm extends Component {
 //and send to state
 
 handleSubmit = event => {
-console.log(event)
+  event.preventDefault()
+  const user= this.state
+  this.props.createUser(user)
 }
 
 //* get rid of submitHandler anonymous function, we are doing handleSubmit
@@ -38,7 +42,7 @@ console.log(event)
          <form onSubmit={this.handleSubmit}>
           <input
             type="text"
-            name="signupUsername"
+            name="signupUserName"
             placeholder="username"
             //get rid of values, we will capture final value in submit
             //value={this.state.signupUsername}
@@ -53,16 +57,20 @@ console.log(event)
           />
           <input
             type="text"
-            name="signupPassword"
+            name="signupUserPassword"
             placeholder="password"
             //value={this.state.signupPassword}
             onChange={this.handleChange}
           />
-          <button>Register</button>
+          <input type="submit" value="register"/>
         </form>
       </div>
     );
   }
 }
 
-export default SignupForm;
+const mapDispatchToProps = dispatch => ({
+    createUser: (user) => dispatch(createUser(user))
+  })
+
+export default connect(null, mapDispatchToProps)(SignupForm);

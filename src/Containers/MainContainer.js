@@ -31,7 +31,7 @@ class MainContainer extends Component {
 
     return (
        <div>
-       <h2> MainC: choices are home, ParkC, or CampgroundC    </h2>
+       <h2>  </h2>
        <Route component={NavBar} />
        <Switch>
        <Route exact path="/main/:name"
@@ -40,10 +40,8 @@ class MainContainer extends Component {
        }
         />
        <Route exact path="/main/:name"
-       render={routerProps =>
-        <div>{this.nestedRoute(routerProps)}</div>
-       }
-        />
+       component={CampgroundContainer}/>
+
        <Route exact path="/main" render={Home} />
 
        </Switch>

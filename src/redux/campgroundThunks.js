@@ -1,4 +1,4 @@
-import { loadParks } from "./action.js"
+import { loadParks, addUser, loginUser } from "./action.js"
 
 export const getParks = () => {
 	return function thunk(dispatch) {
@@ -7,3 +7,54 @@ export const getParks = () => {
 		.then(data => dispatch(loadParks(data)))
 	}
 }
+
+ export const createUser = (user) => {
+   return function thunk(dispatch) {
+     return fetch("http://localhost:3000/api/v1/users", {
+       method: "POST",
+       headers: {
+
+      "Content-Type": "application/json",
+       Accepts: "application/json",
+     },
+     body: JSON.stringify({
+    	 user: {
+    		 user_name: user.signupUserName,
+    		 email: user.signupUserEmail,
+    		 password: user.signupUserPassword
+    	 }
+     })
+  })
+  .then(resp=> resp.json())
+  .then(data => {
+    console.log(data)
+  	 dispatch(addUser(data.user))
+     localStorage.setItem("token", data.jwt)
+    });
+ }};
+
+ export const getUser = (user) => {
+   return function thunk(dispatch) {
+     return fetch("http://localhost:3000/api/v1/login", {
+       method: "POST",
+       headers: {
+
+      "Content-Type": "application/json",
+       Accepts: "application/json",
+      },
+      body: JSON.stringify({
+    	  user: {
+    		  user_name: user.loginUserName,
+    		  email: user.loginUserEmail,
+    		  password: user.loginUserPassword
+    	  }
+     })
+  })
+  .then(resp=> resp.json())
+  .then(data => {
+    console.log(data)
+    localStorage.setItem("token", data.jwt)
+  	 dispatch(loginUser(data.user))
+
+    });
+ }};

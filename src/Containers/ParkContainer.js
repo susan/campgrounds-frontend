@@ -17,10 +17,40 @@ class ParkContainer extends Component {
   //       selectedPark: selectedPark
   //     })
   //    }
+  // componentDidMount(){
+  // fetch("http://localhost:3000/api/v1/users")
+  //   .then(resp => resp.json())
+  //   .then(data => console.log(data))
+  // }
 
+  // componentDidMount(){
+  //  fetch("http://localhost:3000/api/v1/users/", {
+  //   method: "POST",
+  //   headers: {
+  //     "Content-Type": "application/json",
+  //     Accepts: "application/json"
+  //   },
+  //   body: JSON.stringify({
+  //     user: {
+  //     user_name: "testing",
+  //     email: "testing@yang.com",
+  //     password: "yangville"
+  //     }
+  //   })
+  //  })
+  //   .then(resp => resp.json())
+  //   .then(resp => {
+  //     console.log("is this the guy", resp)
+  //      localStorage.setItem("token", resp.jwt)
+  //      this.setState({
+  //        user: resp.user
+  //      })
+
+  //   })
+  // }
 
   render() {
-    console.log("Parkc props are", this.props)
+    console.log("Parkc state are", this.state)
 
     const parkList = this.props.parks.map(park => {
       return <ParkCard key={park.id} park = {park} />

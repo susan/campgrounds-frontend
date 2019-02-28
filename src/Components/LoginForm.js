@@ -1,10 +1,12 @@
 import React, { Component } from "react";
+import { connect } from "react-redux"
+import { getUser } from "../redux/campgroundThunks.js"
 
 class LoginForm extends Component {
   state = {
-    loginUsername: "",
+    loginUserName: "",
     loginUserEmail: '',
-    loginPassword: "",
+    loginUserPassword: "",
   };
 
   handleChange = event => {
@@ -14,7 +16,10 @@ class LoginForm extends Component {
   };
 
   handleSubmit = event => {
-    console.log("submitted")
+    event.preventDefault()
+    console.log(this.state)
+    const user= this.state
+    this.props.getUser(user)
   }
 
 
@@ -26,7 +31,7 @@ class LoginForm extends Component {
         <form onSubmit={this.handleSubmit}>
           <input
             type="text"
-            name="loginUsername"
+            name="loginUserName"
             placeholder="username"
             onChange={this.handleChange}
           />
@@ -40,15 +45,18 @@ class LoginForm extends Component {
 
           <input
             type="text"
-            name="loginPassword"
+            name="loginUserPassword"
             placeholder="password"
             onChange={this.handleChange}
           />
-          <button>Log In</button>
+         <input type="submit" value="login"/>
         </form>
       </div>
     );
   }
 }
+  const mapDispatchToProps = dispatch => ({
+    getUser: (user) => dispatch(getUser(user))
+  })
 
-export default LoginForm;
+export default connect(null, mapDispatchToProps)(LoginForm);
