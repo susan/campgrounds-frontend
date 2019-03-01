@@ -14,10 +14,10 @@ const AppNavBar = (props) => {
         </Menu.Item>
         <Menu.Item position="right"as={ NavLink } name="Logout" to="/logout">
         </Menu.Item>
-
         <Menu.Item position="right"as={ NavLink } name="Register" to="/register">
         </Menu.Item>
       </Menu>
+      <img className="navbar-img" alt="" src= "https://media.giphy.com/media/UPSUj9yw75xpC/giphy.gif" />
     </ul>
   )
 }

@@ -1,28 +1,29 @@
 import React, { Component } from 'react';
 import './App.css';
-//import NavBar from "./Components/NavBar"
+import AppNavBar from "./Components/AppNavBar"
 import MainContainer from "./Containers/MainContainer";
+import Home from "./Components/Home"
+import ParkContainer from "./Containers/ParkContainer"
+import CampgroundContainer from "./Containers/CampgroundContainer"
+
 import LoginForm from "./Components/LoginForm"
 import SignupForm from "./Components/SignupForm"
 import LogoutUser from "./Components/LogoutUser"
-import { Route, Switch, withRouter, redirect} from "react-router-dom"
+import { Route, Switch, withRouter, redirect, Router} from "react-router-dom"
 
-//import { Route, Switch, withRouter} from "react-router-dom"
 
 class App extends Component {
   render() {
     return (
       <div className="App">
+      <Route exact path= '/' component={AppNavBar} />
       <Switch>
-
-      <Route exact path="/register" component={SignupForm}/>
-       <Route exact path="/login" component={LoginForm}/>
-       <Route exact path="/logout" component={LogoutUser}/>
-       <Route path= "/main" component={MainContainer} />
-
+      <Route path="/register" component={SignupForm}/>
+       <Route path="/login" component={LoginForm}/>
+       <Route path="/logout" component={LogoutUser}/>
+       <Route path="/main" component={MainContainer}/>
        </Switch>
-       <Route path= "/" component={MainContainer} />
-      </div>
+       </div>
     );
   }
 }

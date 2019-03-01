@@ -15,36 +15,29 @@ class MainContainer extends Component {
     this.props.getParks()
   }
 
-   nestedRoute = (routerProps) => {
-      let parkList= this.props.parks
-      if (routerProps.match.params.name === "parks") {
-        return <ParkContainer parks={parkList} />
-      }
-       else if (routerProps.match.params.name === "campgrounds"){
-        return <CampgroundContainer  />
-      }
-      else return <Home />
-    }
+   // nestedRoute = (routerProps) => {
+   //    let parkList= this.props.parks
+   //    if (routerProps.match.params.name === "parks") {
+   //      return <ParkContainer parks={parkList} />
+   //    }
+   //     else if (routerProps.match.params.name === "campgrounds"){
+   //      return <CampgroundContainer  />
+   //    }
+   //    else return <Home />
+   //  }
 
   render() {
   	//console.log("mainC props are", this.props)
 
     return (
-       <div>
-       <h2>  </h2>
-       <Route component={NavBar} />
+       <div className="MainContainer">
+       <Route path= '/main' component={NavBar} />
        <Switch>
-       <Route exact path="/main/:name"
-       render={routerProps =>
-        <div>{this.nestedRoute(routerProps)}</div>
-       }
-        />
-       <Route exact path="/main/:name"
-       component={CampgroundContainer}/>
+       <Route path='/main/parks' render = {(props) => <ParkContainer parks={this.props.parks} />}/>
+        <Route path='/main/campgrounds' component={CampgroundContainer} />
+        <Route path='/main/Home' component={Home} />
+        </Switch>
 
-       <Route exact path="/main" render={Home} />
-
-       </Switch>
       </div>
     );
   }

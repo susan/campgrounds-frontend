@@ -6,8 +6,6 @@ const NavBar = (props) => {
   return (
     <ul>
       <Menu attached='top' color='green' inverted>
-        <Menu.Item as={ NavLink } name="Home" to="/">
-        </Menu.Item>
         <Menu.Item as={ NavLink } name="Parks" to="/main/parks">
         </Menu.Item>
         <Menu.Item as={ NavLink } name="Campgrounds" to="/main/campgrounds" >
@@ -16,8 +14,9 @@ const NavBar = (props) => {
         </Menu.Item>
         <Menu.Item position="right"as={ NavLink } name="Logout" to="/logout">
         </Menu.Item>
-
         <Menu.Item position="right"as={ NavLink } name="Register" to="/register">
+        </Menu.Item>
+         <Menu.Item as={ NavLink } name="Home" to="/">
         </Menu.Item>
       </Menu>
     </ul>

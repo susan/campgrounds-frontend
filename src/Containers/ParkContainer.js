@@ -51,13 +51,11 @@ class ParkContainer extends Component {
 
   render() {
     console.log("Parkc state are", this.state)
-
     const parkList = this.props.parks.map(park => {
       return <ParkCard key={park.id} park = {park} />
-    })
+    });
     return (
       <div>
-
 
     	<h2>  National Parks Home Page </h2>
       <Grid className="categories-wrapper" celled='internally' container stackable centered columns='equal'>
@@ -66,7 +64,7 @@ class ParkContainer extends Component {
 
        <CampgroundParkList  />
      </div>
-    )
+    );
   }
 }
 
