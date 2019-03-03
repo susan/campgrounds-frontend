@@ -3,9 +3,22 @@ import { Card, Button } from "semantic-ui-react";
 import { Link, Route, Switch } from "react-router-dom"
 import { connect } from "react-redux"
 import CampgroundParkList from "../Containers/CampgroundParkList"
+import CampgroundParkDetails from "./CampgroundParkDetails"
 
 
 class ParkDetails extends Component {
+
+	renderMoreDetails = (routerProps) => {
+    const { id } = parseInt(routerProps.match.params)
+    let campground = this.props.park.campgrounds.find(
+      campgroundObj => campgroundObj.id === id
+     );
+
+    	console.log(campground)
+      return <CampgroundParkDetails
+         campground={campground}
+      />
+  }
 
 	render() {
      console.log("pdetail props are", this.props)
