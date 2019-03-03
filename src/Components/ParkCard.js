@@ -15,7 +15,6 @@ class ParkCard extends Component {
   	const {img1_url, full_name, park} = this.props
     this.props.selectPark(park)
 
-
     return (
       <div>
       <br/>
@@ -23,7 +22,7 @@ class ParkCard extends Component {
        <div>
 
        <p> {park.full_name} </p>
-       <Button  onClick= { () => this.props.selectPark(park) }>  Show Campgrounds </Button>
+       <Button  onClick= { () => this.props.selectPark(park) }>  More Details </Button>
        </div>
      </div>
     );

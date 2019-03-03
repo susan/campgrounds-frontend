@@ -4,6 +4,8 @@ import ParkDetails from "../Components/ParkDetails"
 import { Grid} from 'semantic-ui-react';
 import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
 import CampgroundParkList from "./CampgroundParkList"
+import { connect } from "react-redux"
+
 
 class ParkContainer extends Component {
 
@@ -50,37 +52,47 @@ class ParkContainer extends Component {
   //   })
   // }
   //
-  whichThingtoShow() {
-    if (this.props.selectedPark) {
-      return <ParkDetails  park={this.props.selectedPark} />
-    }
-    else {
-      const parkList = this.props.parks.map(park => {
-         return <ParkCard key={park.id} park = {park} />
-         });
-      return parkList
-    }
-  }
+  // whichThingtoShow() {
+  //   if (Object.keys(this.props.selectedPark).length !== 0) {
+  //     console.log(this.state.selectedPark)
+  //     return <ParkDetails  park={this.props.selectedPark} />
+  //   }
+  //   else {
+  //     const parkList = this.props.parks.map(park => {
+  //        return <ParkCard key={park.id} park = {park} />
+  //        });
+  //     return parkList
+  //   }
+  // }
 
   render() {
     console.log("Parkc state are", this.state)
     const parkList = this.props.parks.map(park => {
       return <ParkCard key={park.id} park = {park} />
     });
+
     return (
       <div>
-
     	<h2>  National Parks Home Page </h2>
-      <Grid className="categories-wrapper" celled='internally' container stackable centered columns='equal'>
-      {this.whichThingtoShow()}
-      </Grid>
-
-       <CampgroundParkList  />
-     </div>
+      <Route
+         path = "/main/parks"
+        render = {()=> {
+          return(
+             <Grid className="categories-wrapper" celled='internally' container stackable centered columns='equal'>
+               {parkList}
+              </Grid>
+          )
+           }}
+           />
+      </div>
     );
   }
 }
 
-export default ParkContainer
+const mapStateToProps = (state) => ({
+  selectedPark: state.selectedPark
+})
+
+export default connect(mapStateToProps)(ParkContainer);
 //{/*createCampgrounds={this.createCampgrounds} */}
 //park={this.state.selectedPark}
