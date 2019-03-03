@@ -10,13 +10,17 @@ class CampgroundParkList extends Component {
   	console.log("---")
       return (
       	<div>
-         {this.props.selectedPark.campgrounds
+         {this.props.campgrounds
            &&
-         this.props.selectedPark.campgrounds.map(campground => {
+         this.props.campgrounds.map(campground => {
           return (
+            <div>
+                 <ul className= "nav_list" >
                  <Link to={`/campgroundPark/${campground.name}`} >
                  <li> {campground.name} </li>
                  </Link>
+                 </ul>
+                 </div>
             );
           })
          }
