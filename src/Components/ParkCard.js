@@ -17,12 +17,15 @@ class ParkCard extends Component {
 
 
     return (
-      <Card.Header className= "card">
+      <div className= "box">
       <br/>
        <img className = "park-img" alt="" src={park.img1_url} />
+       <div>
+
        <p> {park.full_name} </p>
-       <Button onClick= { () => this.props.selectPark(park) }>  Show Campgrounds </Button>
-     </Card.Header >
+       <button class="btn" onClick= { () => this.props.selectPark(park) }>  Show Campgrounds </button>
+       </div>
+     </div>
     );
   }
 }
