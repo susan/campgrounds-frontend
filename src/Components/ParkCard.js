@@ -3,28 +3,38 @@ import { Card, Button } from "semantic-ui-react";
 import { Link } from "react-router-dom"
 import { connect } from "react-redux"
 import { selectPark} from "../redux/action"
+//import ParkDetails from "./ParkDetails"
 
 class ParkCard extends Component {
 
-  //  campgroundHandler = () => {
-  //   return this.props.createCampgrounds(this.props.park)
-  // }
+  state= {
+    showDetails: false,
+  }
+
+  showDetails = () => {
+    this.setState ({
+      showDetails: !this.state.ShowDetails,
+    })
+  }
+
 
   render() {
   	//console.log("pcard props are", this.props)
   	const {img1_url, full_name, park} = this.props
-    this.props.selectPark(park)
-
     return (
       <div>
       <br/>
        <img className = "park-img" alt="" src={park.img1_url} />
-       <div>
-
        <p> {park.full_name} </p>
-       <Button  onClick= { () => this.props.selectPark(park) }>  More Details </Button>
+       <div>
+       {this.state.showDetails
+        ?
+        (this.props.renderMoreDetails(park, this.showDetails))
+        :
+       (<Button  onClick= {this.showDetails}>  More Details </Button>)
+       }
        </div>
-     </div>
+       </div>
     );
   }
 }
@@ -33,12 +43,16 @@ class ParkCard extends Component {
 //   selected: state.selectedPark.id === ownProps.park.id
 // })
 
+const mapStateToProps = (state) => ({
+  selectedPark: state.selectedPark
+})
+
 const mapDispatchToProps = (dispatch) => ({
   selectPark: (parkObj) => dispatch(selectPark(parkObj))
 })
 
 
-export default connect(null, mapDispatchToProps)(ParkCard)
+export default connect(mapStateToProps, mapDispatchToProps)(ParkCard)
 
 //console.log(ownProps) ||
   //({chosenPark: state.chosenPark  })

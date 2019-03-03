@@ -52,31 +52,30 @@ class ParkContainer extends Component {
   //   })
   // }
   //
-  // whichThingtoShow() {
-  //   if (Object.keys(this.props.selectedPark).length !== 0) {
-  //     console.log(this.state.selectedPark)
-  //     return <ParkDetails  park={this.props.selectedPark} />
-  //   }
-  //   else {
-  //     const parkList = this.props.parks.map(park => {
-  //        return <ParkCard key={park.id} park = {park} />
-  //        });
-  //     return parkList
-  //   }
-  // }
+    // }
+
+  renderMoreDetails = (selectPark, func) => {
+    return(
+      <ParkDetails
+         park = {selectPark}
+          handleParkClick={func}
+      />)
+  }
 
   render() {
     console.log("Parkc state are", this.state)
     const parkList = this.props.parks.map(park => {
-      return <ParkCard key={park.id} park = {park} />
+      return <ParkCard key={park.id} park = {park} renderMoreDetails={this.renderMoreDetails} />
     });
 
     return (
       <div>
     	<h2>  National Parks Home Page </h2>
+      <Switch>
+
       <Route
-         path = "/main/parks"
-        render = {()=> {
+        path="/main/parks"
+        render={()=> {
           return(
              <Grid className="categories-wrapper" celled='internally' container stackable centered columns='equal'>
                {parkList}
@@ -84,6 +83,7 @@ class ParkContainer extends Component {
           )
            }}
            />
+          </Switch>
       </div>
     );
   }
@@ -94,5 +94,15 @@ const mapStateToProps = (state) => ({
 })
 
 export default connect(mapStateToProps)(ParkContainer);
-//{/*createCampgrounds={this.createCampgrounds} */}
+//{<Route
+        //  path="/main/parks/:name"
+        // render={(props)=> {
+        //   const { name } = props.match.params
+        //   if (Object.keys(this.props.selectedPark).length !== 0) {
+        //     const park =this.props.selectedPark
+        //       return <ParkDetails {...park} {...props} />
+        //     } else {
+        //       return null
+        //     }
+        //   }} />} */}
 //park={this.state.selectedPark}
