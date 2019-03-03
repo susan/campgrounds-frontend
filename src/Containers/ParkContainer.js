@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import ParkCard from "../Components/ParkCard.js"
+import ParkCard from "../Components/ParkCard"
+import ParkDetails from "../Components/ParkDetails"
 import { Grid} from 'semantic-ui-react';
 import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
-import CampgroundParkList from "./CampgroundParkList.js"
+import CampgroundParkList from "./CampgroundParkList"
 
 class ParkContainer extends Component {
 
@@ -48,6 +49,18 @@ class ParkContainer extends Component {
 
   //   })
   // }
+  //
+  whichThingtoShow() {
+    if (this.props.selectedPark) {
+      return <ParkDetails  park={this.props.selectedPark} />
+    }
+    else {
+      const parkList = this.props.parks.map(park => {
+         return <ParkCard key={park.id} park = {park} />
+         });
+      return parkList
+    }
+  }
 
   render() {
     console.log("Parkc state are", this.state)
@@ -59,7 +72,7 @@ class ParkContainer extends Component {
 
     	<h2>  National Parks Home Page </h2>
       <Grid className="categories-wrapper" celled='internally' container stackable centered columns='equal'>
-      {parkList}
+      {this.whichThingtoShow()}
       </Grid>
 
        <CampgroundParkList  />
