@@ -17,13 +17,13 @@ class ParkCard extends Component {
 
 
     return (
-      <div className= "box">
+      <div>
       <br/>
        <img className = "park-img" alt="" src={park.img1_url} />
        <div>
 
        <p> {park.full_name} </p>
-       <button class="btn" onClick= { () => this.props.selectPark(park) }>  Show Campgrounds </button>
+       <Button  onClick= { () => this.props.selectPark(park) }>  Show Campgrounds </Button>
        </div>
      </div>
     );
