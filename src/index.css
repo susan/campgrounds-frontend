@@ -60,3 +60,30 @@ code {
 .btn:hover {
 	background-color: lightblue;
 }
+
+.nav_block{
+height: 50px;
+background-color: green;
+display: flex;
+justify-content: space-between;
+
+}
+
+.nav_list{
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 10;
+  list-style: none;
+  background-color: none;
+  /*flex: 1 1 auto; */
+}
+
+.nav_item{
+  padding: 10px ;
+  margin: 0 20px;
+  background-color: aquagreen;
+  color: white;
+  border-right: 0.5px dashed mediumseagreen;
+
+}
