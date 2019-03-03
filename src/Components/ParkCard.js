@@ -7,15 +7,7 @@ import { selectPark} from "../redux/action"
 
 class ParkCard extends Component {
 
-  state= {
-    showDetails: false,
-  }
 
-  showDetails = () => {
-    this.setState ({
-      showDetails: !this.state.ShowDetails,
-    })
-  }
 
 
   render() {
@@ -26,22 +18,12 @@ class ParkCard extends Component {
       <br/>
        <img className = "park-img" alt="" src={park.img1_url} />
        <p> {park.full_name} </p>
-       <div>
-       {this.state.showDetails
-        ?
-        (this.props.renderMoreDetails(park, this.showDetails))
-        :
-       (<Button  onClick= {this.showDetails}>  More Details </Button>)
-       }
-       </div>
+      <Button  onClick= {this.selectPark(park)}>  More Details </Button>)
        </div>
     );
   }
 }
 
-// const mapStateToProps = (state, ownProps) =>  ({
-//   selected: state.selectedPark.id === ownProps.park.id
-// })
 
 const mapStateToProps = (state) => ({
   selectedPark: state.selectedPark

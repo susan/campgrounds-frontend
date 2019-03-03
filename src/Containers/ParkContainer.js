@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ParkCard from "../Components/ParkCard"
+import ParkList from "../Components/ParkList"
 import ParkDetails from "../Components/ParkDetails"
 import { Grid} from 'semantic-ui-react';
 import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
@@ -54,55 +54,57 @@ class ParkContainer extends Component {
   //
     // }
 
-  renderMoreDetails = (selectPark, func) => {
-    return(
+  renderMoreDetails = (routerProps) => {
+    const { name } = routerProps.match.params
+    let park = this.props.parks.find(
+      parkObj => parkObj.name === name
+     )
+    return (
       <ParkDetails
-         park = {selectPark}
-          handleParkClick={func}
-      />)
+         park={park}
+      /> )
   }
 
   render() {
     console.log("Parkc state are", this.state)
-    const parkList = this.props.parks.map(park => {
-      return <ParkCard key={park.id} park = {park} renderMoreDetails={this.renderMoreDetails} />
-    });
 
     return (
       <div>
-    	<h2>  National Parks Home Page </h2>
-      <Switch>
+
+       <Switch>
+          <Route
+              path="/main/parks/:name"
+                 render={ routerProps =>
+                    <div>
+                    {this.props.parks.length > 0
+                      ?
+                      (this.renderMoreDetails(routerProps))
+                      :
+                    (null)
+                    }
+                     </div>
+                   }
+                    />
 
       <Route
         path="/main/parks"
-        render={()=> {
+        render={(routerProps)=> {
           return(
-             <Grid className="categories-wrapper" celled='internally' container stackable centered columns='equal'>
-               {parkList}
-              </Grid>
+            <React.Fragment>
+            <h2>  National Parks Home Page </h2>
+             <ParkList parks={this.props.parks}    />
+          </React.Fragment>
           )
            }}
+
            />
-          </Switch>
-      </div>
-    );
-  }
+           </Switch>
+                 </div>
+         );
+    }
 }
 
-const mapStateToProps = (state) => ({
-  selectedPark: state.selectedPark
-})
 
-export default connect(mapStateToProps)(ParkContainer);
-//{<Route
-        //  path="/main/parks/:name"
-        // render={(props)=> {
-        //   const { name } = props.match.params
-        //   if (Object.keys(this.props.selectedPark).length !== 0) {
-        //     const park =this.props.selectedPark
-        //       return <ParkDetails {...park} {...props} />
-        //     } else {
-        //       return null
-        //     }
-        //   }} />} */}
-//park={this.state.selectedPark}
+
+export default ParkContainer;
+
