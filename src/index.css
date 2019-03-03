@@ -44,6 +44,21 @@ code {
   top: 0;
   left: 100px;
   color: black;
+
+}
+
+.card {
+  margin: 0;
+  position: relative;
+  height: 400 px;
+  width: 100%;
+  top: 0;
+  left: 100px;
+  color: black;
+}
+
+.h6{
+text-align: left;
 }
 
 .btn {

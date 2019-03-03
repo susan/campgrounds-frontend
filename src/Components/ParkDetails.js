@@ -8,11 +8,19 @@ class ParkDetails extends Component {
 
 	render() {
      console.log("pdetail props are", this.props)
+     const {img1_url, full_name, description, directions_info,
+     	url, weather_info, vehicle_fee} = this.props.park
 		return (
-			<div>
+			<div className = "box">
 
+      <h1>  {full_name}     </h1>
+      <img className = "park-img" alt="" src={this.props.park.photos[0].url2}     />
+     <h4>  {description}     </h4>
+     <h6 >Directions:    {directions_info} </h6>
+     <h6 >Website:    {url} </h6>
+     <h6 >Weather:    {weather_info} </h6>
+     <h6 >Daily Vehicle Fee:    {vehicle_fee}</h6>
 
-      <h1>  {this.props.park.full_name}     </h1>
 		</div>
 		);
   }
