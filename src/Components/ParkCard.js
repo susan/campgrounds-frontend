@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Card, Button } from "semantic-ui-react";
-import { Link } from "react-router-dom"
+import { Link, Route } from "react-router-dom"
 import { connect } from "react-redux"
 import { selectPark} from "../redux/action"
 //import ParkDetails from "./ParkDetails"
@@ -18,7 +18,20 @@ class ParkCard extends Component {
       <br/>
        <img className = "park-img" alt="" src={park.img1_url} />
        <p> {park.full_name} </p>
-      <Button  onClick= {this.selectPark(park)}>  More Details </Button>)
+
+       <Route render={({history}) => (
+         <Button  onClick= {() => {
+          return (
+            <div>
+           { history.push(`parks/${park.name}`) }
+           {this.selectPark(park)}
+           </div>
+           )
+         }}
+        >
+        More Details
+        </Button>
+        )} />
        </div>
     );
   }

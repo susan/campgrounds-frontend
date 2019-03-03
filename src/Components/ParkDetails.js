@@ -9,7 +9,11 @@ class ParkDetails extends Component {
 	render() {
      console.log("pdetail props are", this.props)
 		return (
+			<div>
+
+
       <h1>  {this.props.park.full_name}     </h1>
+		</div>
 		);
   }
 }
