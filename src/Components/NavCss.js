@@ -27,7 +27,7 @@ const NavCSS = () => {
       </NavLink>
 
       <NavLink
-        to="/signup"
+        to="/register"
       >
 
       <li className="nav_item"> Register </li>
