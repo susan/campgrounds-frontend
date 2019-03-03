@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 //import AppNavBar from "./Components/AppNavBar"
-import NavCSS from "./Components/NavCss"
+import AppNavCss from "./Components/NavCss"
 import MainContainer from "./Containers/MainContainer";
 import Home from "./Components/Home"
 import ParkContainer from "./Containers/ParkContainer"
@@ -17,7 +17,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-      <Route exact path= '/' component={NavCSS} />
+      <Route exact path= '/' component={AppNavCss} />
       <Switch>
       <Route path="/register" component={SignupForm}/>
        <Route path="/login" component={LoginForm}/>

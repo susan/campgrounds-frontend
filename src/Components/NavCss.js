@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-const NavCSS = () => {
+const AppNavCss = () => {
   return (
    <nav class= "nav_block">
     <ul className="nav_list">
@@ -40,11 +40,10 @@ const NavCSS = () => {
       <li className="nav_item"> Logout </li>
       </NavLink>
       </ul>
-
     </nav>
   );
 }
 
-export default NavCSS;
+export default AppNavCss;
 
 //style={{ marginRight: '10px' }}
