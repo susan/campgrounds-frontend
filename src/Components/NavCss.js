@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 
  const NavCss = (props) => {
   return (
-   <nav class= "nav_block">
+   <nav className= "nav_block">
     <ul className="nav_list">
     {/*<div style={{borderBottom: '2px solid black', paddingBottom: '10px', marginBottom: '12px' }}> */}
       <NavLink
