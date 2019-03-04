@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ParkList from "../Components/ParkList"
-import ParkDetails from "../Components/ParkDetails"
+import ParkDetailsContainer from "./ParkDetailsContainer"
 import { Grid} from 'semantic-ui-react';
 import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
 import CampgroundParkList from "./CampgroundParkList"
@@ -60,7 +60,7 @@ class ParkContainer extends Component {
       parkObj => parkObj.name === name
      )
     return (
-      <ParkDetails
+      <ParkDetailsContainer
          park={park}
       /> )
   }

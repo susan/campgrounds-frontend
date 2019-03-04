@@ -4,26 +4,22 @@ import { Link, Route, Switch } from "react-router-dom"
 import { connect } from "react-redux"
 import CampgroundParkList from "../Containers/CampgroundParkList"
 import CampgroundParkDetails from "./CampgroundParkDetails"
-
+import CampgroundDetailsContainer from "../Containers/CampgroundDetailsContainer"
 
 class ParkDetails extends Component {
 
-	renderMoreDetails = (routerProps) => {
-    const { id } = parseInt(routerProps.match.params)
-    let campground = this.props.park.campgrounds.find(
-      campgroundObj => campgroundObj.id === id
-     );
-
-    	console.log(campground)
-      return <CampgroundParkDetails
-         campground={campground}
-      />
-  }
+  campgrounds = () => (
+     <div>
+      <CampgroundDetailsContainer  campgrounds={this.props.park.campgrounds}/>
+      </div>
+  )
 
 	render() {
      console.log("pdetail props are", this.props)
      const {img1_url, full_name, description, directions_info,
      	url, weather_info, vehicle_fee, campgrounds} = this.props.park
+
+
 		return (
 			<div>
 
@@ -34,33 +30,10 @@ class ParkDetails extends Component {
      <h6 >Website:    {url} </h6>
      <h6 >Weather:    {weather_info} </h6>
      <h6 >Daily Vehicle Fee:    {vehicle_fee}</h6>
+      <ul>
+      {this.campgrounds()}
+      </ul>
 
-		<Switch>
-            <Route
-              path="/:id"
-                 render={ routerProps =>
-                    <div className= "box">
-                    {campgrounds.length > 0
-                      ?
-                      (this.renderMoreDetails(routerProps))
-                      :
-                    (null)
-                    }
-                     </div>
-                   }
-                    />
-                    <Route
-        path="/main/parks/:name"
-        render={(routerProps)=> {
-          return(
-            <React.Fragment>
-            <h4> Campgrounds: </h4>
-             <CampgroundParkList campgrounds={this.props.park.campgrounds}    />
-          </React.Fragment>
-          )
-           }}
-         />
-     </Switch>
 		</div>
 		);
   }

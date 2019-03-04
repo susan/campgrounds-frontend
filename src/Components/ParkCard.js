@@ -11,7 +11,7 @@ class ParkCard extends Component {
 
 
   render() {
-  	//console.log("pcard props are", this.props)
+  	console.log("pcard props are", this.props)
   	const {img1_url, full_name, park} = this.props
     return (
       <div>
@@ -24,7 +24,7 @@ class ParkCard extends Component {
           return (
             <div>
            { history.push(`parks/${park.name}`) }
-           {this.selectPark(park)}
+           {this.props.selectPark(park)}
            </div>
            )
          }}
@@ -47,7 +47,7 @@ const mapDispatchToProps = (dispatch) => ({
 })
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(ParkCard)
+export default connect(mapStateToProps, mapDispatchToProps)(ParkCard);
 
 //console.log(ownProps) ||
   //({chosenPark: state.chosenPark  })

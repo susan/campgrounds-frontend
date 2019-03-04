@@ -1,4 +1,4 @@
-import { ADD_USER, LOAD_PARKS, LOGIN_USER, LOGOUT_USER } from "./types"
+import { ADD_USER, LOAD_PARKS, SELECT_PARK, SELECT_CAMPGROUND, LOGIN_USER, LOGOUT_USER } from "./types"
 
 
 export const addUser = (user) => {
@@ -36,5 +36,12 @@ export const selectPark = (parkObj) => {
 	return {
 		type: "SELECT_PARK",
     payload: parkObj
+	}
+}
+
+export const selectCampground = (campgroundObj) => {
+	return {
+		type: "SELECT_CAMPGROUND",
+    payload: campgroundObj
 	}
 }

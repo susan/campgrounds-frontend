@@ -11,3 +11,5 @@ export const DELETE_REVIEW = "DELETE_REVIEW"
 export const LOAD_PARKS = "LOAD_PARKS"
 
 export const SELECT_PARK = "SELECT_PARK"
+
+export const SELECT_CAMPGROUND= "SELECT_CAMPGROUND"

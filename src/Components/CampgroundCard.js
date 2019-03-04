@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Card, Button } from "semantic-ui-react";
 import { Link, Route, Switch } from "react-router-dom"
+import { selectCampground} from "../redux/action"
+import { connect } from "react-redux"
 
 class CampgroundCard extends Component {
 
@@ -10,24 +12,37 @@ class CampgroundCard extends Component {
     return (
       <div>
       <Card className= "card">
-      <Route render={({history}) =>
-         <div>
-         {console.log(history)}
+      <Route render={({history}) =>(
+
             <Link to={`/${this.props.campground.id}`}
-             onClick= {() =>
-
+             onClick= {() => {
+              console.log(history)
+              return (
+              <div>
            { history.push(`campgrounds/${this.props.campground.id}`) }
-
-           }
+           {this.props.selectCampground(this.props.campground)}
+           </div>
+           )
+           }}
             >
             {this.props.campground.name} </Link>
-        </div>
-     }
-    />
+
+            )}
+       />
     </Card>
       </div>
     );
   }
 }
 
-export default CampgroundCard;
+const mapStateToProps = (state) => ({
+  selectedCampground: state.selectedCampground
+})
+
+const mapDispatchToProps = (dispatch) => ({
+  selectCampground: (campgroundObj) => dispatch(selectCampground(campgroundObj))
+})
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(CampgroundCard);
+
