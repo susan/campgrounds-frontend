@@ -14,19 +14,19 @@ class CampgroundCard extends Component {
       <Card className= "card">
       <Route render={({history}) =>(
 
-            <Link to={`/${this.props.campground.id}`}
+            <Link to={`/campground/${this.props.campground.id}`}
              onClick= {() => {
               console.log(history)
               return (
               <div>
-           { history.push(`campgrounds/${this.props.campground.id}`) }
+           { history.push(`/campgrounds/${this.props.campground.id}`) }
            {this.props.selectCampground(this.props.campground)}
+
            </div>
            )
            }}
             >
             {this.props.campground.name} </Link>
-
             )}
        />
     </Card>
@@ -35,14 +35,14 @@ class CampgroundCard extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
-  selectedCampground: state.selectedCampground
-})
+// const mapStateToProps = (state) => ({
+//   selectedCampground: state.selectedCampground
+// })
 
 const mapDispatchToProps = (dispatch) => ({
   selectCampground: (campgroundObj) => dispatch(selectCampground(campgroundObj))
 })
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(CampgroundCard);
+export default connect(null, mapDispatchToProps)(CampgroundCard);
 

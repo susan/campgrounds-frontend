@@ -14,7 +14,7 @@ class CampgroundParkList extends Component {
       return(
        <div>
 
-      <CampgroundCard key={campground.id} campground = {campground} renderMoreDetails={this.renderMoreDetails} />
+      <CampgroundCard key={campground.name} campground = {campground} renderMoreDetails={this.renderMoreDetails} />
 
       </div>
       )

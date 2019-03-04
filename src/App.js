@@ -6,6 +6,7 @@ import MainContainer from "./Containers/MainContainer";
 import Home from "./Components/Home"
 import ParkContainer from "./Containers/ParkContainer"
 import CampgroundContainer from "./Containers/CampgroundContainer"
+import CampgroundParkDetails from './Components/CampgroundParkDetails'
 
 import LoginForm from "./Components/LoginForm"
 import SignupForm from "./Components/SignupForm"
@@ -23,6 +24,7 @@ class App extends Component {
        <Route path="/login" component={LoginForm}/>
        <Route path="/logout" component={LogoutUser}/>
        <Route path="/main" component={MainContainer}/>
+       <Route path="/campground/:id" component={CampgroundParkDetails}/>
        </Switch>
        </div>
     );

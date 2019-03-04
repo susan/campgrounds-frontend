@@ -7,17 +7,18 @@ import { connect } from "react-redux"
 
 class CampgroundDetailsContainer extends Component {
 
-  renderMoreDetails = (routerProps) => {
-    const { id } = parseInt(routerProps.match.params)
+  // renderMoreDetails = (routerProps) => {
+  //   const { id } = parseInt(routerProps.match.params)
+  //   console.log(id)
 
-    let campground = this.props.campgrounds.find(
-      campgroundObj => campgroundObj.id === id
-     );
+  //   let campground = this.props.campgrounds.find(
+  //     campgroundObj => campgroundObj.id === id
+  //    );
 
-      return <CampgroundParkDetails
-         campground={campground}
-      />
-  }
+  //     return <CampgroundParkDetails
+  //        campground={this.props.selectedCampground}
+  //     />
+  // }
 
   render() {
   	console.log("cpdetailsc are", this.props)
@@ -27,41 +28,57 @@ class CampgroundDetailsContainer extends Component {
 
   return(
     <div>
-    <Switch>
+    {this.props.selectedCampground
+    &&
+    <CampgroundParkDetails
+    />
+     }
             <Route
-              path="/campgrounds/:id"
-                 render={ routerProps =>
-                    <div className= "box">
-                    {this.props.campgrounds.length > 0
-                      &&
-                      (this.renderMoreDetails(routerProps))
-                    }
-                     </div>
-                   }
-                    />
-                    <Route
-        path="/main/parks/:name"
-        render={(routerProps)=> {
-          return(
-            <React.Fragment>
-            <h4> Campgrounds: </h4>
-             <CampgroundParkList campgrounds={this.props.campgrounds}    />
-          </React.Fragment>
-          )
-           }}
-         />
-     </Switch>
-     </div>
+               exact path="/main/parks/:name"
+               render={(routerProps)=> {
+               console.log('here2')
+               return(
+                 <React.Fragment>
+                    <h4> Campgrounds: </h4>
+                    <CampgroundParkList campgrounds={this.props.campgrounds}    />
+             </React.Fragment>
+                )
+               }}
+             />
+
+
+        </div>
     )
   }
 }
 
-const mapStateToProps = (state) => ({
-  selectedCampground: state.selectedCampground
-})
+  const mapStateToProps = (state) => {
+    console.log("NEW STATE:", state)
+    return {
+      selectedCampground: state.selectedCampground
+    }
+
+  }
 
 
 
 export default connect(mapStateToProps)(CampgroundDetailsContainer);
 
 
+// <Switch>
+
+
+//             <Route
+//                 path="/campground/:id"
+//                 render={(routerProps) => {
+//                   return(
+//                     <div>
+//                       <p>CampgroundContainer</p>
+//                   {this.props.selectedCampground.id
+//                       &&
+//                       (this.renderMoreDetails(routerProps))
+//                   }
+//                   </div>
+//                   )
+//                  }}
+//             />

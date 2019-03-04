@@ -10,7 +10,7 @@ class ParkDetails extends Component {
 
   campgrounds = () => (
      <div>
-      <CampgroundDetailsContainer  campgrounds={this.props.park.campgrounds}/>
+      <CampgroundDetailsContainer  campgrounds={this.props.park.campgrounds}  />
       </div>
   )
 

@@ -9,6 +9,8 @@ import { getParks } from "../redux/campgroundThunks"
 import { connect } from 'react-redux'
 import { Grid} from 'semantic-ui-react';
 import { Route, Switch, withRouter} from "react-router-dom"
+import CampgroundParkDetails from '../Components/CampgroundParkDetails'
+
 
 class MainContainer extends Component {
 
@@ -37,6 +39,7 @@ class MainContainer extends Component {
        <Switch>
        <Route path='/main/parks' render = {(props) => <ParkContainer parks={this.props.parks} />}/>
         <Route path='/main/campgrounds' component={CampgroundContainer} />
+        <Route exact path="/campground/:id" component={CampgroundParkDetails}/>
         <Route path='/main/Home' component={Home} />
         </Switch>
 

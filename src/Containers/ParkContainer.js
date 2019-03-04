@@ -66,7 +66,7 @@ class ParkContainer extends Component {
   }
 
   render() {
-    console.log("Parkc state are", this.state)
+    //console.log("Parkc props are", this.props)
 
     return (
       <div>

@@ -23,8 +23,6 @@ export const logoutUser = (user) => {
 }
 
 
-
-
 export const loadParks = (parks) => {
 	return {
 		type: "LOAD_PARKS",
