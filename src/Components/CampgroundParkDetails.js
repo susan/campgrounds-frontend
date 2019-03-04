@@ -10,7 +10,7 @@ class CampgroundParkDetails extends Component {
 
     return (
 
-      <div>
+      <div className="box">
       <Card.Header className= "card">
       <p> {this.props.selectedCampground.name} </p>
      <p> {this.props.selectedCampground.description} </p>

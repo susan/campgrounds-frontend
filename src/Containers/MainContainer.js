@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import NavBar from "../Components/NavBar"
+import NavCss from "../Components/NavCss"
 //import {NavMainCss} from "../Components/NavCss"
 
 import Home from "../Components/Home"
@@ -35,11 +35,12 @@ class MainContainer extends Component {
 
     return (
        <div className="MainContainer">
-       <Route path= '/main' component={NavBar} />
+       <Route path= '/main' component={NavCss} />
        <Switch>
        <Route path='/main/parks' render = {(props) => <ParkContainer parks={this.props.parks} />}/>
-        <Route path='/main/campgrounds' component={CampgroundContainer} />
-        <Route exact path="/campground/:id" component={CampgroundParkDetails}/>
+        <Route exact path="/main/campgrounds/:id" component={CampgroundParkDetails}/>
+        <Route exact path='/main/campgrounds' component={CampgroundContainer} />
+
         <Route path='/main/Home' component={Home} />
         </Switch>
 

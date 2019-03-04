@@ -14,12 +14,12 @@ class CampgroundCard extends Component {
       <Card className= "card">
       <Route render={({history}) =>(
 
-            <Link to={`/campground/${this.props.campground.id}`}
+            <Link to={`main/campgrounds/${this.props.campground.id}`}
              onClick= {() => {
               console.log(history)
               return (
               <div>
-           { history.push(`/campgrounds/${this.props.campground.id}`) }
+           { history.push(`/${this.props.campground.id}`) }
            {this.props.selectCampground(this.props.campground)}
 
            </div>
