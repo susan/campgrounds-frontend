@@ -28,11 +28,7 @@ class CampgroundDetailsContainer extends Component {
 
   return(
     <div>
-    {this.props.selectedCampground
-    &&
-    <CampgroundParkDetails
-    />
-     }
+
             <Route
                exact path="/main/parks/:name"
                render={(routerProps)=> {

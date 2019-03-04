@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import AppNavBar from "./Components/AppNavBar"
+import AppNavCss from "./Components/AppNavCss"
 //import {AppNavCss} from "./Components/NavCss"
 import MainContainer from "./Containers/MainContainer";
 import Home from "./Components/Home"
@@ -18,7 +18,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-      <Route exact path= '/' component={AppNavBar} />
+      <Route exact path= '/' component={AppNavCss} />
       <Switch>
       <Route path="/register" component={SignupForm}/>
        <Route path="/login" component={LoginForm}/>
