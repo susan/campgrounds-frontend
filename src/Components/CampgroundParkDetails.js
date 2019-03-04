@@ -13,7 +13,7 @@ class CampgroundParkDetails extends Component {
       <div className="box">
       <Card.Header className= "card">
       <p> {this.props.selectedCampground.name} </p>
-      <img className= "park-img" alt="" src={this.props.selectedPark.photos[0].url3}    />
+      <img className= "park-img" alt="" src={this.props.selectedPark.photos[0].url1}    />
      <p> {this.props.selectedCampground.description} </p>
      <p> {this.props.selectedCampground.directions_overview} </p>
      <p> showers available: {this.props.selectedCampground.showers.toString()} </p>
