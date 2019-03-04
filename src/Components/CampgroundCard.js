@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Card, Button } from "semantic-ui-react";
-import { Link } from "react-router-dom"
+import { Link, Route, Switch } from "react-router-dom"
 
 class CampgroundCard extends Component {
 
@@ -9,11 +9,23 @@ class CampgroundCard extends Component {
 
     return (
       <div>
-      <Card.Header className= "card">
-       <Link to={`/campgrounds/${this.props.campgroundname}`} > {this.props.campground.name} </Link>
-     </Card.Header >
-      </div>
+      <Card className= "card">
+      <Route render={({history}) =>
+         <div>
+         {console.log(history)}
+            <Link to={`/${this.props.campground.id}`}
+             onClick= {() =>
 
+           { history.push(`campgrounds/${this.props.campground.id}`) }
+
+           }
+            >
+            {this.props.campground.name} </Link>
+        </div>
+     }
+    />
+    </Card>
+      </div>
     );
   }
 }

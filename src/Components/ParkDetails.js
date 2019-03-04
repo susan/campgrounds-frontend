@@ -37,10 +37,10 @@ class ParkDetails extends Component {
 
 		<Switch>
             <Route
-              path="/main/campgrounds/:name"
+              path="/:id"
                  render={ routerProps =>
                     <div className= "box">
-                    {this.props.parks.length > 0
+                    {campgrounds.length > 0
                       ?
                       (this.renderMoreDetails(routerProps))
                       :
