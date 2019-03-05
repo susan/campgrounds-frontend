@@ -20,6 +20,7 @@ class LoginForm extends Component {
     console.log(this.state)
     const user= this.state
     this.props.getUser(user)
+    this.props.history.push('/main');
   }
 
 

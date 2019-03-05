@@ -26,6 +26,7 @@ handleSubmit = event => {
   event.preventDefault()
   const user= this.state
   this.props.createUser(user)
+  this.props.history.push('/main');
 }
 
 //* get rid of submitHandler anonymous function, we are doing handleSubmit

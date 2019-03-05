@@ -9,6 +9,7 @@ class LogoutUser extends Component {
     // remove user from local storage to log user out
     localStorage.removeItem("token");
     this.props.logoutUser(this.props.user)
+    this.props.history.push('/');
 }
 
 
