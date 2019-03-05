@@ -57,7 +57,20 @@ code {
   color: black;
 }
 
+.reviewform {
+  display: flex;
+}
+p,
+.btn,
+#input-field {
+  flex: 1;
+}
+
 .h6{
+text-align: left;
+}
+
+.h8{
 text-align: left;
 }
 

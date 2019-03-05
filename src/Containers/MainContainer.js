@@ -10,7 +10,7 @@ import { connect } from 'react-redux'
 import { Grid} from 'semantic-ui-react';
 import { Route, Switch, withRouter} from "react-router-dom"
 import CampgroundParkDetails from '../Components/CampgroundParkDetails'
-
+import ReviewForm from "../Components/ReviewForm"
 
 class MainContainer extends Component {
 
@@ -40,7 +40,7 @@ class MainContainer extends Component {
        <Route path='/main/parks' render = {(props) => <ParkContainer parks={this.props.parks} />}/>
         <Route exact path="/main/campgrounds/:id" component={CampgroundParkDetails}/>
         <Route exact path='/main/campgrounds' component={CampgroundContainer} />
-
+        <Route exact path='/main/reviewform' component={ReviewForm} />
         <Route path='/main/Home' component={Home} />
         </Switch>
 
@@ -54,7 +54,6 @@ class MainContainer extends Component {
     return {
     	parks: state.parks
     }
-
   }
 
   const mapDispatchToProps = dispatch => ({

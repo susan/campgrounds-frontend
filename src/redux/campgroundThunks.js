@@ -1,4 +1,4 @@
-import { loadParks, addUser, loginUser } from "./action.js"
+import { loadParks, loadCampgrounds, addUser, loginUser } from "./action.js"
 
 export const getParks = () => {
 	return function thunk(dispatch) {
@@ -7,6 +7,15 @@ export const getParks = () => {
 		.then(data => dispatch(loadParks(data)))
 	}
 }
+
+export const getCampgrounds = () => {
+  return function thunk(dispatch) {
+    return fetch("http://localhost:3000/api/v1/campgrounds")
+    .then(resp => resp.json())
+    .then(data => dispatch(loadCampgrounds(data)))
+  }
+}
+
 
  export const createUser = (user) => {
    return function thunk(dispatch) {

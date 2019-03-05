@@ -5,54 +5,16 @@ import { Grid} from 'semantic-ui-react';
 import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
 import CampgroundParkList from "./CampgroundParkList"
 import { connect } from "react-redux"
+import { getCampgrounds } from "../redux/campgroundThunks"
+import ReviewForm from "../Components/ReviewForm"
 
 
 class ParkContainer extends Component {
 
-  // state= {
-  //   selectedPark: {},
+componentDidMount(){
+    this.props.getCampgrounds()
+  }
 
-  // }
-
-  // createCampgrounds = (selectedPark) => {
-  //     //console.log("does this work")
-  //     return this.setState({
-  //       selectedPark: selectedPark
-  //     })
-  //    }
-  // componentDidMount(){
-  // fetch("http://localhost:3000/api/v1/users")
-  //   .then(resp => resp.json())
-  //   .then(data => console.log(data))
-  // }
-
-  // componentDidMount(){
-  //  fetch("http://localhost:3000/api/v1/users/", {
-  //   method: "POST",
-  //   headers: {
-  //     "Content-Type": "application/json",
-  //     Accepts: "application/json"
-  //   },
-  //   body: JSON.stringify({
-  //     user: {
-  //     user_name: "testing",
-  //     email: "testing@yang.com",
-  //     password: "yangville"
-  //     }
-  //   })
-  //  })
-  //   .then(resp => resp.json())
-  //   .then(resp => {
-  //     console.log("is this the guy", resp)
-  //      localStorage.setItem("token", resp.jwt)
-  //      this.setState({
-  //        user: resp.user
-  //      })
-
-  //   })
-  // }
-  //
-    // }
 
   renderMoreDetails = (routerProps) => {
     const { name } = routerProps.match.params
@@ -104,7 +66,11 @@ class ParkContainer extends Component {
     }
 }
 
+const mapDispatchToProps = dispatch => ({
+    getCampgrounds: () => dispatch(getCampgrounds())
+  })
 
 
-export default ParkContainer;
+
+export default connect(null, mapDispatchToProps)(ParkContainer);
 
