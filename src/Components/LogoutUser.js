@@ -15,7 +15,7 @@ class LogoutUser extends Component {
 
   render() {
     return (
-      <button onClick={() => this.logout()} className="btn btn-primary">
+      <button onClick={() => this.logout()} className="form-submit">
         LogMeOut
       </button>
     )
