@@ -35,10 +35,12 @@ class ReviewForm extends Component {
 
     	<p> {this.props.selectedCampground.name}</p>
     	<br></br>
-    	<form className="reviewform" onSubmit={this.handleSubmit} >
-      <p> Select Rating: </p>
+    	<div className="form-center">
+      <div className="form-card">
+    	<form className onSubmit={this.handleSubmit} >
+      <h3> Select Rating: </h3>
 
-      <select  name="rating" onChange={this.handleChange}>
+      <select className="form-item" name="rating" onChange={this.handleChange}>
       <option value="1">1</option>
       <option value="2">2</option>
       <option value="3">3</option>
@@ -48,16 +50,19 @@ class ReviewForm extends Component {
 
 
       <textarea rows="12" cols="80"
+
             name="content"
             placeholder="Add your review here"
             onChange={this.handleChange}
 
           />
 
-       <button type="submit" className= "btn">
+       <button type="submit" className= "form-submit">
        Add Review</button>
 
       </form>
+      </div>
+      </div>
       </React.Fragment>
     )
   }

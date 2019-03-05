@@ -27,31 +27,33 @@ class LoginForm extends Component {
   render() {
     console.log(this.props);
     return (
-      <div>
-        <h2>Log In</h2>
+      <div className="form-center">
+      <div className="form-card">
+        <h1>Log In</h1>
         <form onSubmit={this.handleSubmit}>
-          <input
+          <input className="form-item"
             type="text"
             name="loginUserName"
             placeholder="username"
             onChange={this.handleChange}
           />
 
-          <input
+          <input className="form-item"
             type="text"
             name="loginUserEmail"
             placeholder="email"
             onChange={this.handleChange}
           />
 
-          <input
+          <input className="form-item"
             type="text"
             name="loginUserPassword"
             placeholder="password"
             onChange={this.handleChange}
           />
-         <input type="submit" value="login"/>
+         <input className="form-submit" type="submit" value="login"/>
         </form>
+      </div>
       </div>
     );
   }

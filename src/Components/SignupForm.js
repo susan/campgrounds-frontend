@@ -37,11 +37,12 @@ handleSubmit = event => {
   render() {
     console.log(this.props);
     return (
-      <div>
-        <h2>Register</h2>
+      <div className="form-center">
+      <div className="form-card">
+        <h1>Register</h1>
 
          <form onSubmit={this.handleSubmit}>
-          <input
+          <input className="form-item"
             type="text"
             name="signupUserName"
             placeholder="username"
@@ -49,22 +50,23 @@ handleSubmit = event => {
             //value={this.state.signupUsername}
             onChange={this.handleChange}
           />
-         <input
+         <input className="form-item"
             type="text"
             name="signupUserEmail"
             placeholder="email"
             //value={this.state.signupUserEmail}
             onChange={this.handleChange}
           />
-          <input
+          <input className="form-item"
             type="text"
             name="signupUserPassword"
             placeholder="password"
             //value={this.state.signupPassword}
             onChange={this.handleChange}
           />
-          <input type="submit" value="register"/>
+          <input className="form-submit" type="submit" value="register"/>
         </form>
+      </div>
       </div>
     );
   }
