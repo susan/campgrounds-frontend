@@ -38,6 +38,7 @@ class ReviewForm extends Component {
     	<div className="form-center">
       <div className="form-card">
     	<form className onSubmit={this.handleSubmit} >
+      <h1> Add Review </h1>
       <h3> Select Rating: </h3>
 
       <select className="form-item" name="rating" onChange={this.handleChange}>
