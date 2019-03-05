@@ -1,12 +1,8 @@
 import React, { Component } from 'react';
-import { getCampgrounds } from "../redux/campgroundThunks"
 import { connect } from 'react-redux'
 
 class CampgroundContainer extends Component {
 
-  componentDidMount(){
-    this.props.getCampgrounds()
-  }
 
   render() {
     return (
@@ -24,8 +20,5 @@ const mapStateToProps = (state) => {
     }
   }
 
-const mapDispatchToProps = dispatch => ({
-  	getCampgrounds: () => dispatch(getCampgrounds())
-  })
 
-export default connect(mapStateToProps, mapDispatchToProps)(CampgroundContainer);
+export default connect(mapStateToProps)(CampgroundContainer);

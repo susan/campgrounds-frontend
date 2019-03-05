@@ -1,4 +1,4 @@
-import { loadParks, loadCampgrounds, addUser, loginUser } from "./action.js"
+import { loadParks, loadCampgrounds, addReview, addUser, loginUser } from "./action.js"
 
 export const getParks = () => {
 	return function thunk(dispatch) {
@@ -15,6 +15,36 @@ export const getCampgrounds = () => {
     .then(data => dispatch(loadCampgrounds(data)))
   }
 }
+
+
+export const createReview = (review) => {
+   return function thunk(dispatch) {
+     return fetch("http://localhost:3000/api/v1/reviews", {
+       method: "POST",
+       headers: {
+
+      "Content-Type": "application/json",
+       Accepts: "application/json",
+     },
+     body: JSON.stringify({
+       review: {
+         user_id: review.user_id,
+         campground_id: review.campground_id,
+         rating: parseInt(review.rating),
+         content: review.content
+       }
+     })
+  })
+  .then(resp=> resp.json())
+  .then(data => {
+    console.log(data)
+     dispatch(addReview(data))
+    });
+
+   }
+
+};
+
 
 
  export const createUser = (user) => {
@@ -41,6 +71,8 @@ export const getCampgrounds = () => {
      localStorage.setItem("token", data.jwt)
     });
  }};
+
+
 
  export const getUser = (user) => {
    return function thunk(dispatch) {

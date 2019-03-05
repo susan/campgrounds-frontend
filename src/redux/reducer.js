@@ -8,6 +8,7 @@ const initialState =  {
   campgrounds: [],
   selectedPark: {},
   selectedCampground: {},
+  reviews: [],
 };
 
 //using the word function below instead of arrow
@@ -44,7 +45,7 @@ export default function reducer(state = initialState, action){
     }
 
     case ADD_REVIEW: {
-      return {...state, reviews: [...state.reviews, action.payload] }
+      return {...state, reviews:[...state.reviews, action.payload]};
     }
 
     case DELETE_REVIEW: {
