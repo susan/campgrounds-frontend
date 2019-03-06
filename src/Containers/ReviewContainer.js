@@ -45,6 +45,7 @@ class ReviewContainer extends Component {
 const mapStateToProps = (state) => ({
     	campgrounds: state.campgrounds,
     	selectedCampground: state.selectedCampground,
+      selectedPark: state.selectedPark,
     })
 
 

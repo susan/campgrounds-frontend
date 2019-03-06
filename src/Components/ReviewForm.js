@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux"
 import { createReview } from "../redux/campgroundThunks.js"
+import { Redirect } from 'react-router-dom'
 
 class ReviewForm extends Component {
 
@@ -28,6 +29,7 @@ class ReviewForm extends Component {
 
 
   render() {
+  	if (localStorage.getItem("token")){
 
     return (
     	<React.Fragment>
@@ -37,7 +39,7 @@ class ReviewForm extends Component {
     	<br></br>
     	<div className="form-center">
       <div className="form-card">
-    	<form className onSubmit={this.handleSubmit} >
+    	<form onSubmit={this.handleSubmit} >
       <h1> Add Review </h1>
       <h3> Select Rating: </h3>
 
@@ -66,6 +68,12 @@ class ReviewForm extends Component {
       </div>
       </React.Fragment>
     )
+  } else {
+    return (
+       <Redirect to="/login" />
+
+    	)
+  }
   }
 }
 
