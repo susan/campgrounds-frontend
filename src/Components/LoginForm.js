@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux"
 import { getUser } from "../redux/campgroundThunks.js"
+import { Redirect } from 'react-router-dom'
 
 class LoginForm extends Component {
   state = {
@@ -26,6 +27,10 @@ class LoginForm extends Component {
 
   render() {
     console.log(this.props);
+     if (localStorage.getItem('token')) {
+       return <Redirect to= "/main" />
+     } else {
+
     return (
       <div className="form-center">
       <div className="form-card">
@@ -56,6 +61,7 @@ class LoginForm extends Component {
       </div>
       </div>
     );
+  }
   }
 }
   const mapDispatchToProps = dispatch => ({

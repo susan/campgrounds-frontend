@@ -7,7 +7,7 @@ class CampgroundContainer extends Component {
   render() {
     return (
        <div>
-       <h4> CampgroundC--CgroundsList ALL Parks, gets shown instead of all Parks   </h4>
+       <h4> Coming Soon  </h4>
       </div>
     );
   }

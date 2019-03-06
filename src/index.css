@@ -19,6 +19,7 @@ code {
 }
 
 .box {
+
 	 position: relative;
    height: 400px;
    width: 75%;
@@ -29,6 +30,7 @@ code {
 }
 
 .box2 {
+
    position: relative;
    height: 30px;
    width: 25%;
@@ -39,6 +41,7 @@ code {
 }
 
 .pcard{
+  display: block;
   margin: 0;
   position: absolute;
   top: 0;
@@ -48,6 +51,7 @@ code {
 }
 
 .card {
+  display: block;
   margin: 0;
   position: relative;
   height: 400 px;
