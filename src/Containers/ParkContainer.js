@@ -66,11 +66,18 @@ componentDidMount(){
     }
 }
 
+const mapStateToProps = (state) => {
+    return {
+      campgrounds: state.campgrounds
+    }
+
+  }
+
 const mapDispatchToProps = dispatch => ({
     getCampgrounds: () => dispatch(getCampgrounds())
   })
 
 
 
-export default connect(null, mapDispatchToProps)(ParkContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(ParkContainer);
 

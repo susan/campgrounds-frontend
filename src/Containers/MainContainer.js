@@ -57,7 +57,8 @@ class MainContainer extends Component {
   }
 
   const mapDispatchToProps = dispatch => ({
-  	getParks: () => dispatch(getParks())
+  	getParks: () => dispatch(getParks()),
+    //this is func that returns an object so we could return two objects
   })
 
 

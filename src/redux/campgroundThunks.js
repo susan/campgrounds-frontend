@@ -25,6 +25,7 @@ export const createReview = (review) => {
 
       "Content-Type": "application/json",
        Accepts: "application/json",
+       Authorization: `Bearer ${localStorage.getItem("token")}`
      },
      body: JSON.stringify({
        review: {

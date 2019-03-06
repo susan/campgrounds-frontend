@@ -70,6 +70,7 @@ class ReviewForm extends Component {
     )
   } else {
     return (
+
        <Redirect to="/login" />
 
     	)
