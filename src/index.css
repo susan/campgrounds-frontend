@@ -19,7 +19,7 @@ code {
 }
 
 .box {
-
+   text_align: left;
 	 position: relative;
    height: 400px;
    width: 75%;
@@ -30,7 +30,7 @@ code {
 }
 
 .box2 {
-
+   text_align: left;
    position: relative;
    height: 30px;
    width: 25%;

@@ -29,8 +29,7 @@ class ReviewForm extends Component {
 
 
   render() {
-  	if (localStorage.getItem("token") !=="undefined"){
-
+  	if (localStorage.getItem("token") ) {
     return (
     	<React.Fragment>
     	{console.log("reviewform props are", this.props)}

@@ -12,7 +12,8 @@ class ParkCard extends Component {
 
   render() {
   	//console.log("pcard props are", this.props)
-  	const {img1_url, full_name, park} = this.props
+
+    const {img1_url, full_name, park} = this.props
     return (
       <div>
       <br/>
@@ -33,6 +34,7 @@ class ParkCard extends Component {
         </Button>
         )} />
        </div>
+
     );
   }
 }

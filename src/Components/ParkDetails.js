@@ -21,7 +21,7 @@ class ParkDetails extends Component {
 
 
 		return (
-			<div >
+			<div>
 
       <h1>  {full_name}     </h1>
       <img className = "park-img" alt="" src={this.props.park.photos[0].url2}     />
@@ -29,7 +29,7 @@ class ParkDetails extends Component {
      <h5 >Directions:    {directions_info} </h5>
      <h5 >Website:    {url} </h5>
      <h5 >Weather:    {weather_info} </h5>
-     <h6 >Daily Vehicle Fee:    {vehicle_fee}</h6>
+     <h5>Daily Vehicle Fee:    {vehicle_fee}</h5>
       <ul>
       {this.campgrounds()}
       </ul>
