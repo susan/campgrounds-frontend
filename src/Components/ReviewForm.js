@@ -29,7 +29,7 @@ class ReviewForm extends Component {
 
 
   render() {
-  	if (localStorage.getItem("token")){
+  	if (localStorage.getItem("token") !=="undefined"){
 
     return (
     	<React.Fragment>

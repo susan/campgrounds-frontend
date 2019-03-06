@@ -5,15 +5,15 @@ import { Grid} from 'semantic-ui-react';
 import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
 import CampgroundParkList from "./CampgroundParkList"
 import { connect } from "react-redux"
-import { getCampgrounds } from "../redux/campgroundThunks"
+//import { getCampgrounds } from "../redux/campgroundThunks"
 
 
 
 class ParkContainer extends Component {
 
-componentDidMount(){
-    this.props.getCampgrounds()
-  }
+// componentDidMount(){
+//     this.props.getCampgrounds()
+//   }
 
 
   renderMoreDetails = (routerProps) => {
@@ -66,18 +66,18 @@ componentDidMount(){
     }
 }
 
-const mapStateToProps = (state) => {
-    return {
-      campgrounds: state.campgrounds
-    }
+// const mapStateToProps = (state) => {
+//     return {
+//       campgrounds: state.campgrounds
+//     }
 
-  }
+//   }
 
-const mapDispatchToProps = dispatch => ({
-    getCampgrounds: () => dispatch(getCampgrounds())
-  })
+// const mapDispatchToProps = dispatch => ({
+//     getCampgrounds: () => dispatch(getCampgrounds())
+//   })
 
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(ParkContainer);
+export default ParkContainer;
 

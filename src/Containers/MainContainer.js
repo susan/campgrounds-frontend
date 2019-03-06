@@ -6,6 +6,7 @@ import Home from "../Components/Home"
 import ParkContainer from "./ParkContainer"
 import CampgroundContainer from "./CampgroundContainer"
 import { getParks } from "../redux/campgroundThunks"
+import { getCampgrounds } from "../redux/campgroundThunks"
 import { connect } from 'react-redux'
 import { Grid} from 'semantic-ui-react';
 import { Route, Switch, withRouter} from "react-router-dom"
@@ -17,6 +18,7 @@ class MainContainer extends Component {
 
   componentDidMount(){
     this.props.getParks()
+    this.props.getCampgrounds()
   }
 
    // nestedRoute = (routerProps) => {
@@ -38,7 +40,7 @@ class MainContainer extends Component {
        <Route path= '/main' component={NavBar} />
        <Switch>
        <Route path='/main/parks' render = {(props) => <ParkContainer parks={this.props.parks} />}/>
-        <Route exact path="/main/campgrounds/:id" component={CampgroundParkDetails}/>
+        <Route  path="/main/campgrounds/:id" component={CampgroundParkDetails}/>
         <Route exact path='/main/campgrounds' component={CampgroundContainer} />
         <Route exact path='/main/reviewform' component={ReviewForm} />
         <Route path='/main/Home' component={Home} />
@@ -52,12 +54,16 @@ class MainContainer extends Component {
   const mapStateToProps = (state) => {
     console.log("NEW STATE:", state)
     return {
-    	parks: state.parks
+    	parks: state.parks,
+      campgrounds: state.campgrounds,
+      selectedPark: state.selectedPark
+
     }
   }
 
   const mapDispatchToProps = dispatch => ({
   	getParks: () => dispatch(getParks()),
+    getCampgrounds: () => dispatch(getCampgrounds())
     //this is func that returns an object so we could return two objects
   })
 
