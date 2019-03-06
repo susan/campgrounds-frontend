@@ -30,7 +30,6 @@ class LoginForm extends Component {
      if (localStorage.getItem('token') !=="undefined") {
        return <Redirect to= "/main" />
      } else {
-
     return (
       <div className="form-center">
       <div className="form-card">

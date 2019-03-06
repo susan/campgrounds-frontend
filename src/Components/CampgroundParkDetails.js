@@ -19,7 +19,7 @@ findPark = () =>{
 
     return (
 
-      <div className="box">
+      <div className="box2">
       <Card.Header className= "card">
 
       <p> {this.props.selectedCampground.name} </p>

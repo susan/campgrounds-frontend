@@ -71,7 +71,9 @@ p,
 #input-field {
   flex: 1;
 }
-
+.h3 {
+color: aquagreen;
+}
 .h6{
 text-align: left;
 }
