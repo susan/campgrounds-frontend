@@ -38,12 +38,12 @@ class MainContainer extends Component {
     return (
        <div className="MainContainer">
        <Route path= '/main' component={NavBar} />
+       <Route exact path='/main' component={Home} />
        <Switch>
        <Route path='/main/parks' render = {(props) => <ParkContainer parks={this.props.parks} />}/>
         <Route  path="/main/campgrounds/:id" component={CampgroundParkDetails}/>
         <Route exact path='/main/campgrounds' component={CampgroundContainer} />
         <Route exact path='/main/reviewform' component={ReviewForm} />
-        <Route path='/main/Home' component={Home} />
         </Switch>
 
       </div>
