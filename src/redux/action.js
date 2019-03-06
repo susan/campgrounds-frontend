@@ -1,4 +1,4 @@
-import { LOAD_PARKS, SELECT_PARK, LOAD_CAMPGROUNDS, SELECT_CAMPGROUND, ADD_REVIEW, ADD_USER, LOGIN_USER, LOGOUT_USER } from "./types"
+import { LOAD_PARKS, SELECT_PARK, LOAD_CAMPGROUNDS, SELECT_CAMPGROUND, LOAD_REVIEWS, ADD_REVIEW, REMOVE_REVIEW, ADD_USER, LOGIN_USER, LOGOUT_USER } from "./types"
 
 
 export const addUser = (user) => {
@@ -53,9 +53,24 @@ export const selectCampground = (campgroundObj) => {
 	}
 }
 
+export const loadReviews = (reviews) => {
+	return {
+		type: "LOAD_REVIEWS",
+		payload: reviews
+	}
+}
+
+
+
 export const addReview = (review) => {
 	return {
-		type: "ADD_Review",
+		type: "ADD_REVIEW",
+		payload: review
+	}
+}
+export const removeReview = (review) => {
+	return {
+		type: "REMOVE_REVIEW",
 		payload: review
 	}
 }

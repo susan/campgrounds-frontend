@@ -6,7 +6,7 @@ import ReviewContainer from "../Containers/ReviewContainer"
 
 class CampgroundParkDetails extends Component {
 
-findPark = () =>{
+findPark = () => {
   let park = this.props.parks.find(
       parkObj => parkObj.id === this.props.selectedCampground.park_id
      )
@@ -24,8 +24,7 @@ findPark = () =>{
 
       <p> {this.props.selectedCampground.name} </p>
 
-      <img className= "park-img" alt="" src={this.findPark().photos[0].url1} />)
-
+      <img className= "park-img" alt="" src={this.findPark().photos[0].url1} />
 
      <p> {this.props.selectedCampground.description} </p>
      <p> {this.props.selectedCampground.directions_overview} </p>
@@ -34,7 +33,7 @@ findPark = () =>{
 
     <ReviewContainer />
 
-     </Card.Header >
+     </Card.Header>
       </div>
 
     );
@@ -44,7 +43,8 @@ findPark = () =>{
 const mapStateToProps = (state) => ({
   parks: state.parks,
   selectedPark: state.selectedPark,
-  selectedCampground: state.selectedCampground
+  selectedCampground: state.selectedCampground,
+  reviews: state.reviews
 })
 
 export default connect(mapStateToProps)(CampgroundParkDetails);

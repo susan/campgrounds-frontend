@@ -51,7 +51,8 @@ class CampgroundDetailsContainer extends Component {
   const mapStateToProps = (state) => {
     console.log("NEW STATE:", state)
     return {
-      selectedCampground: state.selectedCampground
+      selectedCampground: state.selectedCampground,
+      reviews: state.reviews
     }
 
   }

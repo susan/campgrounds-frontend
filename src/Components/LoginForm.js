@@ -27,7 +27,7 @@ class LoginForm extends Component {
 
   render() {
     console.log(this.props);
-     if (localStorage.getItem('token') !=="undefined") {
+     if (localStorage.getItem('token')) {
        return <Redirect to= "/main" />
      } else {
     return (

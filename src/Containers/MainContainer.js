@@ -5,9 +5,8 @@ import NavBar from "../Components/NavBar"
 import Home from "../Components/Home"
 import ParkContainer from "./ParkContainer"
 import CampgroundContainer from "./CampgroundContainer"
-import { getParks } from "../redux/campgroundThunks"
-import { getCampgrounds } from "../redux/campgroundThunks"
-import { connect } from 'react-redux'
+import { getParks, getCampgrounds, getReviews } from "../redux/campgroundThunks"
+import { connect } from "react-redux"
 import { Grid} from 'semantic-ui-react';
 import { Route, Switch, withRouter} from "react-router-dom"
 import CampgroundParkDetails from '../Components/CampgroundParkDetails'
@@ -19,6 +18,7 @@ class MainContainer extends Component {
   componentDidMount(){
     this.props.getParks()
     this.props.getCampgrounds()
+    this.props.getReviews()
   }
 
    // nestedRoute = (routerProps) => {
@@ -56,14 +56,16 @@ class MainContainer extends Component {
     return {
     	parks: state.parks,
       campgrounds: state.campgrounds,
-      selectedPark: state.selectedPark
+      reviews: state.reviews,
+      selectedPark: state.selectedPark,
 
     }
   }
 
   const mapDispatchToProps = dispatch => ({
   	getParks: () => dispatch(getParks()),
-    getCampgrounds: () => dispatch(getCampgrounds())
+    getCampgrounds: () => dispatch(getCampgrounds()),
+    getReviews: () => dispatch(getReviews())
     //this is func that returns an object so we could return two objects
   })
 

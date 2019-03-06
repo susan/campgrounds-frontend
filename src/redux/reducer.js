@@ -1,4 +1,4 @@
-import { ADD_USER, LOGIN_USER, LOGOUT_USER, ADD_REVIEW, DELETE_REVIEW, LOAD_PARKS, SELECT_PARK, LOAD_CAMPGROUNDS, SELECT_CAMPGROUND} from './types'
+import { ADD_USER, LOGIN_USER, LOGOUT_USER, LOAD_REVIEWS, ADD_REVIEW, REMOVE_REVIEW, LOAD_PARKS, SELECT_PARK, LOAD_CAMPGROUNDS, SELECT_CAMPGROUND} from './types'
 
 
 const initialState =  {
@@ -44,11 +44,16 @@ export default function reducer(state = initialState, action){
       return { ...state, user: {} }
     }
 
+    case LOAD_REVIEWS: {
+     return { ...state, reviews: action.payload}
+    }
+
+
     case ADD_REVIEW: {
       return {...state, reviews:[...state.reviews, action.payload]};
     }
 
-    case DELETE_REVIEW: {
+    case REMOVE_REVIEW: {
        let review = action.payload
       return {...state, reviews: state.reviews.filter(reviewObj =>
         reviewObj.id !== review.id

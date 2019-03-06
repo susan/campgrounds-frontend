@@ -1,4 +1,4 @@
-import { loadParks, loadCampgrounds, addReview, addUser, loginUser } from "./action.js"
+import { loadParks, loadCampgrounds, loadReviews, addReview, addUser, loginUser } from "./action.js"
 
 export const getParks = () => {
 	return function thunk(dispatch) {
@@ -15,6 +15,16 @@ export const getCampgrounds = () => {
     .then(data => dispatch(loadCampgrounds(data)))
   }
 }
+
+export const getReviews = () => {
+  return function thunk(dispatch) {
+    return fetch("http://localhost:3000/api/v1/reviews")
+    .then(resp => resp.json())
+    .then(data =>
+      dispatch(loadReviews(data)))
+  }
+}
+
 
 
 export const createReview = (review) => {
