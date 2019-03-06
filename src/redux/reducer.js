@@ -48,7 +48,6 @@ export default function reducer(state = initialState, action){
      return { ...state, reviews: action.payload}
     }
 
-
     case ADD_REVIEW: {
       return {...state, reviews:[...state.reviews, action.payload]};
     }

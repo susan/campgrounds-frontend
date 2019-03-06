@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux"
-import { createReview } from "../redux/campgroundThunks.js"
+import { createReview } from "../redux/campgroundThunks"
 import { Redirect } from 'react-router-dom'
 
 class ReviewForm extends Component {

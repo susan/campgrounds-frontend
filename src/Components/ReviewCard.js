@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import { connect } from "react-redux"
-import { removeReview } from "../redux/action"
+import { connect } from "react-redux";
+import { deleteReview } from "../redux/campgroundThunks"
+
 
 class ReviewCard extends Component {
 
   handleClick= () => {
-  	this.props.removeReview(this.props.review)
+  	this.props.deleteReview(this.props.review)
   }
 
   render() {
@@ -27,7 +28,7 @@ const mapStateToProps = (state) => ({
 
 
   const mapDispatchToProps = dispatch => ({
-    removeReview: (review) => dispatch(removeReview(review))
+    deleteReview: (review) => dispatch(deleteReview(review))
   })
 
 

@@ -1,4 +1,4 @@
-import { loadParks, loadCampgrounds, loadReviews, addReview, addUser, loginUser } from "./action.js"
+import { loadParks, loadCampgrounds, loadReviews, addReview, removeReview, addUser, loginUser } from "./action.js"
 
 export const getParks = () => {
 	return function thunk(dispatch) {
@@ -53,8 +53,34 @@ export const createReview = (review) => {
     });
 
    }
-};
+}
 
+export const deleteReview = (review) => {
+   return function thunk(dispatch) {
+     return fetch(`http://localhost:3000/api/v1/reviews/${review.id}`, {
+       method: "DELETE",
+       headers: {
+
+      "Content-Type": "application/json",
+       Accepts: "application/json",
+       Authorization: `Bearer ${localStorage.getItem("token")}`
+     },
+     body: JSON.stringify({
+       review: {
+         user_id: review.user_id,
+         campground_id: review.campground_id,
+         rating: parseInt(review.rating),
+         content: review.content
+       }
+     })
+  })
+  .then(resp=> resp.json())
+  .then(data => {
+     return dispatch(removeReview(data))
+    });
+
+   }
+}
 
 
  export const createUser = (user) => {
@@ -80,7 +106,7 @@ export const createReview = (review) => {
   	 dispatch(addUser(data.user))
      localStorage.setItem("token", data.jwt)
     });
- }};
+ }}
 
 
 
