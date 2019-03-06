@@ -21,7 +21,7 @@ class ParkDetails extends Component {
 
 
 		return (
-			<div>
+			<div className="box2">
 
       <h1>  {full_name}     </h1>
       <img className = "park-img" alt="" src={this.props.park.photos[0].url2}     />
