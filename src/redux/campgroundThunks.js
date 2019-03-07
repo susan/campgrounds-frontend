@@ -50,7 +50,7 @@ export const createReview = (review) => {
   .then(data => {
     console.log(data)
      dispatch(addReview(data))
-    });
+    })
 
    }
 }
@@ -67,10 +67,7 @@ export const deleteReview = (review) => {
      },
      body: JSON.stringify({
        review: {
-         user_id: review.user_id,
-         campground_id: review.campground_id,
-         rating: parseInt(review.rating),
-         content: review.content
+         review
        }
      })
   })

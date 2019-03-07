@@ -10,7 +10,7 @@ class ReviewCard extends Component {
   }
 
   render() {
-  	console.log("reviewc props are", this.props)
+  	console.log("reviewc props are", this.props.review.id)
     return (
       <div>
        <h4> Rating:  {this.props.review.rating}     Comment: {this.props.review.content}</h4>
