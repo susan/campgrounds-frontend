@@ -74,6 +74,10 @@ p,
 .h3 {
 color: aquagreen;
 }
+.h4 {
+  line-height: 0.5;
+  color: darkgreen;
+}
 .h6{
 text-align: left;
 }
