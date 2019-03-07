@@ -13,6 +13,11 @@ findPark = () => {
    return park;
 }
 
+// findPark = () => {
+//   const id = parseInt(this.props.params.id)
+
+// }
+
   render() {
   	console.log("CgroundParkDetails props are", this.props)
 
@@ -44,7 +49,8 @@ const mapStateToProps = (state) => ({
   parks: state.parks,
   selectedPark: state.selectedPark,
   selectedCampground: state.selectedCampground,
-  reviews: state.reviews
+  reviews: state.reviews,
+  campgrounds: state.campgrounds
 })
 
 export default connect(mapStateToProps)(CampgroundParkDetails);

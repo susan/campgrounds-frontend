@@ -19,11 +19,13 @@ class ReviewForm extends Component {
   };
 
   handleSubmit = event => {
+    const id = this.props.selectedCampground.id
+    console.log (typeof id)
     event.preventDefault()
     console.log(this.state)
     const review= this.state
     this.props.createReview(review)
-    this.props.history.push('/main/parks');
+    this.props.history.push(`/main/campgrounds/${id}`);
   }
 
 

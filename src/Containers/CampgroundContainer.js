@@ -5,7 +5,9 @@ class CampgroundContainer extends Component {
 
 
   render() {
+    console.log(this.props)
     return (
+
        <div>
        <h4> Coming Soon  </h4>
       </div>
