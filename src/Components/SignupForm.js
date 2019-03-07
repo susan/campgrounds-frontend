@@ -73,8 +73,8 @@ handleSubmit = event => {
 }
 
 const mapDispatchToProps = dispatch => ({
-    createUser: (user) => dispatch(createUser(user)),
-    user: this.state.user
+    createUser: (user) => dispatch(createUser(user))
+
   })
 
 export default connect(null, mapDispatchToProps)(SignupForm);
