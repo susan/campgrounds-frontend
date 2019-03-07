@@ -6,8 +6,8 @@ import { Redirect } from 'react-router-dom'
 class ReviewForm extends Component {
 
  state = {
- 	  user_id: 1,
- 	  campground_id: "1",
+ 	  user_id: this.props.user.id,
+ 	  campground_id: this.props.selectedCampground.id,
     rating: "",
     content: "",
   };
@@ -80,7 +80,8 @@ class ReviewForm extends Component {
 const mapStateToProps = (state) => {
     console.log("NEW STATE:", state)
     return {
-      selectedCampground: state.selectedCampground
+      selectedCampground: state.selectedCampground,
+      user: state.user
     }
 
   }

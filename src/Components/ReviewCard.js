@@ -14,7 +14,7 @@ class ReviewCard extends Component {
     return (
       <div>
        <h4> Rating:  {this.props.review.rating}     Comment: {this.props.review.content}</h4>
-      <i class="trash alternate outline icon" onClick={this.handleClick}> </i>
+      <i className="trash alternate outline icon" onClick={this.handleClick}> </i>
       </div>
     )
   }
