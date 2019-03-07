@@ -7,7 +7,7 @@ class ReviewForm extends Component {
 
  state = {
  	  user_id: 1,
- 	  campground_id: "1",
+ 	  campground_id: this.props.selectedCampground.id,
     rating: "",
     content: "",
   };
