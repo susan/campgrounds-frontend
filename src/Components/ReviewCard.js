@@ -12,9 +12,10 @@ class ReviewCard extends Component {
   render() {
   	console.log("reviewc props are", this.props.review.id)
     return (
-      <div>
-       <h4> Rating:  {this.props.review.rating}     Comment: {this.props.review.content}</h4>
-      <i className="trash alternate outline icon" onClick={this.handleClick}> </i>
+      <div className= "box2">
+       <h4 className="h4"> Rating:  {this.props.review.rating} </h4>
+       <h4 className="h4">    Comment: {this.props.review.content}</h4>
+      <i className="inverted orange trash alternate outline icon" onClick={this.handleClick}> </i>
       </div>
     )
   }
