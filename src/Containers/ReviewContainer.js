@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { Link, Route, Switch } from "react-router-dom"
 import ReviewCard from "../Components/ReviewCard"
-
+import { createReview } from "../redux/campgroundThunks"
 
 class ReviewContainer extends Component {
 
@@ -15,10 +15,24 @@ class ReviewContainer extends Component {
      return reviewList
    }
 
+
+
+   AddReview = (event, state) => {
+    const id = this.props.selectedCampground.id
+    console.log (typeof id)
+    event.preventDefault()
+    console.log(this.state)
+    const review= this.state
+    this.props.createReview(review)
+    this.props.history.push(`/main/campgrounds/${id}`);
+  }
+
+
+
 	render() {
      console.log("reviewCprops are", this.props)
     const reviews = this.findCampgroundReviews().map(review =>{
-       return <ReviewCard key={review.id} review={review} />
+       return <ReviewCard key={review.id} review={review} handleSubmit={this.addReview}/>
     })
 
     return (
@@ -51,6 +65,9 @@ const mapStateToProps = (state) => ({
       parks: state.parks,
     })
 
+const mapDispatchToProps = dispatch => ({
+    createReview: (review) => dispatch(createReview(review))
+  })
 
 
 export default connect(mapStateToProps)(ReviewContainer);

@@ -1,4 +1,4 @@
-import { ADD_USER, LOGIN_USER, LOGOUT_USER, LOAD_REVIEWS, ADD_REVIEW, REMOVE_REVIEW, LOAD_PARKS, SELECT_PARK, LOAD_CAMPGROUNDS, SELECT_CAMPGROUND} from './types'
+import { ADD_USER, LOGIN_USER, LOGOUT_USER, LOAD_REVIEWS, ADD_REVIEW, REMOVE_REVIEW, EDIT_REVIEW, LOAD_PARKS, SELECT_PARK, LOAD_CAMPGROUNDS, SELECT_CAMPGROUND} from './types'
 
 
 const initialState =  {
@@ -9,6 +9,7 @@ const initialState =  {
   selectedPark: {},
   selectedCampground: {},
   reviews: [],
+  selectReview: {}
 };
 
 //using the word function below instead of arrow
@@ -59,6 +60,19 @@ export default function reducer(state = initialState, action){
          )
        }
     }
+
+   case EDIT_REVIEW: {
+     const newReviews= state.reviews.map(review=> {
+       if(review.id === action.payload.id){
+         return action.payload
+       }
+       return review //in array return all reviews plus edited review
+     })
+     return  {...state, reviews: newReviews}
+
+   }
+
+
     default: {
       return state;
     }

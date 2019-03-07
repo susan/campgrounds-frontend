@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux"
-import { createReview } from "../redux/campgroundThunks"
+//import { createReview } from "../redux/campgroundThunks"
 import { Redirect } from 'react-router-dom'
 
 class ReviewForm extends Component {
@@ -18,15 +18,15 @@ class ReviewForm extends Component {
     });
   };
 
-  handleSubmit = event => {
-    const id = this.props.selectedCampground.id
-    console.log (typeof id)
-    event.preventDefault()
-    console.log(this.state)
-    const review= this.state
-    this.props.createReview(review)
-    this.props.history.push(`/main/campgrounds/${id}`);
-  }
+  // handleSubmit = event => {
+  //   const id = this.props.selectedCampground.id
+  //   console.log (typeof id)
+  //   event.preventDefault()
+  //   console.log(this.state)
+  //   const review= this.state
+  //   this.props.createReview(review)
+  //   this.props.history.push(`/main/campgrounds/${id}`);
+  // }
 
 
 
@@ -40,8 +40,8 @@ class ReviewForm extends Component {
     	<br></br>
     	<div className="form-center">
       <div className="form-card">
-    	<form onSubmit={this.handleSubmit} >
-      <h1> Add Review </h1>
+    	<form onSubmit={() => {this.props.handleSubmit(this.state)}} >
+      <h1> Submit Review </h1>
       <h3> Select Rating: </h3>
 
       <select className="form-item" name="rating" onChange={this.handleChange}>
@@ -88,9 +88,9 @@ const mapStateToProps = (state) => {
 
   }
 
-  const mapDispatchToProps = dispatch => ({
-    createReview: (review) => dispatch(createReview(review))
-  })
+  // const mapDispatchToProps = dispatch => ({
+  //   createReview: (review) => dispatch(createReview(review))
+  // })
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(ReviewForm);
+export default connect(mapStateToProps)(ReviewForm);

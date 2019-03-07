@@ -1,4 +1,4 @@
-import { loadParks, loadCampgrounds, loadReviews, addReview, removeReview, addUser, loginUser } from "./action.js"
+import { loadParks, loadCampgrounds, loadReviews, addReview, removeReview, editReview, addUser, loginUser } from "./action.js"
 
 export const getParks = () => {
 	return function thunk(dispatch) {
@@ -48,7 +48,7 @@ export const createReview = (review) => {
   })
   .then(resp=> resp.json())
   .then(data => {
-    console.log(data)
+    //console.log(data)
      dispatch(addReview(data))
     })
 
@@ -78,6 +78,44 @@ export const deleteReview = (review) => {
 
    }
 }
+
+export const patchReview = (review) => {
+   return function thunk(dispatch) {
+     return fetch(`http://localhost:3000/api/v1/reviews/${review.id}`, {
+       method: "PATCH",
+       headers: {
+
+      "Content-Type": "application/json",
+       Accepts: "application/json",
+       Authorization: `Bearer ${localStorage.getItem("token")}`
+     },
+     body: JSON.stringify({
+       review: {
+         review
+       }
+     })
+  })
+  .then(resp=> resp.json())
+  .then(data => {
+     console.log(data)
+     return dispatch(editReview(data))
+    });
+
+   }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
  export const createUser = (user) => {

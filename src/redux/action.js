@@ -1,4 +1,4 @@
-import { LOAD_PARKS, SELECT_PARK, LOAD_CAMPGROUNDS, SELECT_CAMPGROUND, LOAD_REVIEWS, ADD_REVIEW, REMOVE_REVIEW, ADD_USER, LOGIN_USER, LOGOUT_USER } from "./types"
+import { LOAD_PARKS, SELECT_PARK, LOAD_CAMPGROUNDS, SELECT_CAMPGROUND, LOAD_REVIEWS, ADD_REVIEW, REMOVE_REVIEW, EDIT_REVIEW, ADD_USER, LOGIN_USER, LOGOUT_USER } from "./types"
 
 
 export const addUser = (user) => {
@@ -71,6 +71,13 @@ export const addReview = (review) => {
 export const removeReview = (review) => {
 	return {
 		type: "REMOVE_REVIEW",
+		payload: review
+	}
+}
+
+export const editReview = (review) => {
+	return {
+		type: "EDIT_REVIEW",
 		payload: review
 	}
 }
