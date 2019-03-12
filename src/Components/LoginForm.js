@@ -50,7 +50,7 @@ class LoginForm extends Component {
           />
 
           <input className="form-item"
-            type="text"
+            type="password"
             name="loginUserPassword"
             placeholder="password"
             onChange={this.handleChange}

@@ -23,7 +23,7 @@ class ReviewForm extends Component {
     console.log(this.state)
     const review= this.state
     this.props.createReview(review)
-    this.props.history.push('/main/parks');
+    this.props.history.push(`/main/campgrounds/${this.props.selectedCampground.id}`);
   }
 
 
