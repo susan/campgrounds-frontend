@@ -58,7 +58,7 @@ handleSubmit = event => {
             onChange={this.handleChange}
           />
           <input className="form-item"
-            type="text"
+            type="password"
             name="signupUserPassword"
             placeholder="password"
             //value={this.state.signupPassword}

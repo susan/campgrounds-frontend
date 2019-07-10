@@ -15,7 +15,7 @@ class ParkCard extends Component {
 
     const {img1_url, full_name, park} = this.props
     return (
-      <div>
+      <div className= "parkcard">
       <br/>
        <img className = "park-img" alt="" src={park.img1_url} />
        <p> {park.full_name} </p>

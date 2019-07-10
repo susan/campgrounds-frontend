@@ -12,6 +12,7 @@ class ReviewCard extends Component {
   render() {
   	console.log("reviewc props are", this.props.review.id)
     return (
+
       <div className="box2">
        <h4 className="h4"> Rating:  {this.props.review.rating}</h4>
        <h4 className="h4">Comment: {this.props.review.content}</h4>
