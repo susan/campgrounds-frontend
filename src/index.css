@@ -15,8 +15,21 @@ code {
 
 * {
   box-sizing: border-box;
-
 }
+
+
+.parklist {
+  margin-top: 44px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
+  grid-gap: 10px 40px;
+}
+
+.parkcard {
+border-radius: 5px;
+box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.5);
+}
+
 
 .box {
    text_align: left;
@@ -79,13 +92,10 @@ line-height: 0.4;
 color: green;
 }
 
-.h6{
+.h6, .h8{
 text-align: left;
 }
 
-.h8{
-text-align: left;
-}
 
 .btn {
   height: 60 px;

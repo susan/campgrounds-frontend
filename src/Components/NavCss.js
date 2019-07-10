@@ -22,13 +22,6 @@ import { NavLink } from 'react-router-dom';
       <li className="nav_item"> Home </li>
       </NavLink>
 
-       <NavLink
-
-        to="/main/campgrounds"
-        >
-      <li className="nav_item"> Campgrounds </li>
-      </NavLink>
-
 
       <NavLink
 

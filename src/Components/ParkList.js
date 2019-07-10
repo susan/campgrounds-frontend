@@ -11,10 +11,8 @@ render(){
     });
 
   return(
-    <div>
-    <Grid.Column width={12}>
+    <div className="parklist">
     {parkList}
-    </Grid.Column>
     </div>
   	)
   }
