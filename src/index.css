@@ -88,16 +88,13 @@ p,
 color: aquagreen;
 }
 .h4 {
-<<<<<<< HEAD
   line-height: 0.5;
   color: darkgreen;
 }
 .h6{
 text-align: left;
-=======
 line-height: 0.4;
 color: green;
->>>>>>> susan50
 }
 
 .h6, .h8{
